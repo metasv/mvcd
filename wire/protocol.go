@@ -13,7 +13,7 @@ import (
 // XXX pedro: we will probably need to bump this.
 const (
 	// ProtocolVersion is the latest protocol version this package supports.
-	ProtocolVersion uint32 = 70013
+	ProtocolVersion uint32 = 70015
 
 	// MultipleAddressVersion is the protocol version which added multiple
 	// addresses per message (pver >= MultipleAddressVersion).
@@ -50,7 +50,7 @@ const (
 
 	// FeeFilterVersion is the protocol version which added a new
 	// feefilter message.
-	FeeFilterVersion uint32 = 70013
+	FeeFilterVersion uint32 = 70015
 )
 
 // ServiceFlag identifies services supported by a bitcoin peer.
