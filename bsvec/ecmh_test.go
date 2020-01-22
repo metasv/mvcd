@@ -3,7 +3,7 @@ package bsvec
 import (
 	"bytes"
 	"encoding/hex"
-	"github.com/bitcoinsv/bsvd/chaincfg/chainhash"
+	"github.com/yaochaoutokyo/bsvd/chaincfg/chainhash"
 	"testing"
 )
 

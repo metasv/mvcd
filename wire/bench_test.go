@@ -13,7 +13,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/bitcoinsv/bsvd/chaincfg/chainhash"
+	"github.com/yaochaoutokyo/bsvd/chaincfg/chainhash"
 )
 
 // genesisCoinbaseTx is the coinbase transaction for the genesis blocks for

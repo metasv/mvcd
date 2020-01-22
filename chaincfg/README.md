@@ -1,9 +1,9 @@
 chaincfg
 ========
 
-[![Build Status](https://travis-ci.org/bitcoinsv/bsvd.png?branch=master)](https://travis-ci.org/bitcoinsv/bsvd)
+[![Build Status](https://travis-ci.org/yaochaoutokyo/bsvd.png?branch=master)](https://travis-ci.org/yaochaoutokyo/bsvd)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
-[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/bitcoinsv/bsvd/chaincfg)
+[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/yaochaoutokyo/bsvd/chaincfg)
 
 Package chaincfg defines chain configuration parameters for the three standard
 Bitcoin networks and provides the ability for callers to define their own custom
@@ -24,8 +24,8 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/bitcoinsv/bsvutil"
-	"github.com/bitcoinsv/bsvd/chaincfg"
+	"github.com/yaochaoutokyo/bsvutil"
+	"github.com/yaochaoutokyo/bsvd/chaincfg"
 )
 
 var testnet = flag.Bool("testnet", false, "operate on the testnet Bitcoin network")
@@ -56,7 +56,7 @@ func main() {
 ## Installation and Updating
 
 ```bash
-$ go get -u github.com/bitcoinsv/bsvd/chaincfg
+$ go get -u github.com/yaochaoutokyo/bsvd/chaincfg
 ```
 
 ## License

@@ -1,9 +1,9 @@
 rpctest
 =======
 
-[![Build Status](https://travis-ci.org/bitcoinsv/bsvd.png?branch=master)](https://travis-ci.org/bitcoinsv/bsvd)
+[![Build Status](https://travis-ci.org/yaochaoutokyo/bsvd.png?branch=master)](https://travis-ci.org/yaochaoutokyo/bsvd)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
-[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/bitcoinsv/bsvd/integration/rpctest)
+[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/yaochaoutokyo/bsvd/integration/rpctest)
 
 Package rpctest provides a bsvd-specific RPC testing harness crafting and
 executing integration tests by driving a `bsvd` instance via the `RPC`
@@ -20,7 +20,7 @@ systems/integration tests.
 ## Installation and Updating
 
 ```bash
-$ go get -u github.com/bitcoinsv/bsvd/integration/rpctest
+$ go get -u github.com/yaochaoutokyo/bsvd/integration/rpctest
 ```
 
 ## License

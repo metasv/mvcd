@@ -10,7 +10,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/bitcoinsv/bsvd/btcjson"
+	"github.com/yaochaoutokyo/bsvd/btcjson"
 )
 
 // TestAssignField tests the assignField function handles supported combinations

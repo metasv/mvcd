@@ -7,8 +7,8 @@ package txscript
 import (
 	"testing"
 
-	"github.com/bitcoinsv/bsvd/chaincfg/chainhash"
-	"github.com/bitcoinsv/bsvd/wire"
+	"github.com/yaochaoutokyo/bsvd/chaincfg/chainhash"
+	"github.com/yaochaoutokyo/bsvd/wire"
 )
 
 // TestBadPC sets the pc to a deliberately bad result then confirms that Step()

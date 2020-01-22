@@ -9,8 +9,8 @@ import (
 	"errors"
 	"time"
 
-	"github.com/bitcoinsv/bsvd/chaincfg/chainhash"
-	"github.com/bitcoinsv/bsvd/database"
+	"github.com/yaochaoutokyo/bsvd/chaincfg/chainhash"
+	"github.com/yaochaoutokyo/bsvd/database"
 )
 
 // fetchBlockCmd defines the configuration options for the fetchblock command.

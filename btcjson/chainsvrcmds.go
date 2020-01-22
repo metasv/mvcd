@@ -11,7 +11,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/bitcoinsv/bsvd/wire"
+	"github.com/yaochaoutokyo/bsvd/wire"
 )
 
 // AddNodeSubCmd defines the type used in the addnode JSON-RPC command for the

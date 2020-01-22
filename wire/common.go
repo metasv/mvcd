@@ -12,7 +12,7 @@ import (
 	"math"
 	"time"
 
-	"github.com/bitcoinsv/bsvd/chaincfg/chainhash"
+	"github.com/yaochaoutokyo/bsvd/chaincfg/chainhash"
 )
 
 const (

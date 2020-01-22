@@ -1,9 +1,9 @@
 netsync
 =======
 
-[![Build Status](https://travis-ci.org/bitcoinsv/bsvd.png?branch=master)](https://travis-ci.org/bitcoinsv/bsvd)
+[![Build Status](https://travis-ci.org/yaochaoutokyo/bsvd.png?branch=master)](https://travis-ci.org/yaochaoutokyo/bsvd)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
-[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/bitcoinsv/bsvd/netsync)
+[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/yaochaoutokyo/bsvd/netsync)
 
 ## Overview
 
@@ -17,7 +17,7 @@ longest chain the sync peer is aware of.
 ## Installation and Updating
 
 ```bash
-$ go get -u github.com/bitcoinsv/bsvd/netsync
+$ go get -u github.com/yaochaoutokyo/bsvd/netsync
 ```
 
 ## License

@@ -12,8 +12,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/bitcoinsv/bsvutil"
 	flags "github.com/jessevdk/go-flags"
+	"github.com/yaochaoutokyo/bsvutil"
 )
 
 type config struct {

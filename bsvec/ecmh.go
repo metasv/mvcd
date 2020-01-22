@@ -3,7 +3,7 @@ package bsvec
 import (
 	"crypto/sha256"
 	"encoding/binary"
-	"github.com/bitcoinsv/bsvd/chaincfg/chainhash"
+	"github.com/yaochaoutokyo/bsvd/chaincfg/chainhash"
 	"math/big"
 	"sync"
 )

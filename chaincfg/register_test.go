@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	. "github.com/bitcoinsv/bsvd/chaincfg"
+	. "github.com/yaochaoutokyo/bsvd/chaincfg"
 )
 
 // Define some of the required parameters for a user-registered

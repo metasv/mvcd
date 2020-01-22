@@ -8,8 +8,8 @@
 package database
 
 import (
-	"github.com/bitcoinsv/bsvd/chaincfg/chainhash"
-	"github.com/bitcoinsv/bsvutil"
+	"github.com/yaochaoutokyo/bsvd/chaincfg/chainhash"
+	"github.com/yaochaoutokyo/bsvutil"
 )
 
 // Cursor represents a cursor over key/value pairs and nested buckets of a

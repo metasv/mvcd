@@ -16,9 +16,9 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/bitcoinsv/bsvd/chaincfg/chainhash"
-	"github.com/bitcoinsv/bsvd/mining"
-	"github.com/bitcoinsv/bsvutil"
+	"github.com/yaochaoutokyo/bsvd/chaincfg/chainhash"
+	"github.com/yaochaoutokyo/bsvd/mining"
+	"github.com/yaochaoutokyo/bsvutil"
 )
 
 // TODO incorporate Alex Morcos' modifications to Gavin's initial model
@@ -47,7 +47,7 @@ const (
 
 	bytePerKb = 1000
 
-	bsvPerSatoshi = 1E-8
+	bsvPerSatoshi = 1e-8
 )
 
 var (

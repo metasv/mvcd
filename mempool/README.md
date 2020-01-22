@@ -1,9 +1,9 @@
 mempool
 =======
 
-[![Build Status](https://travis-ci.org/bitcoinsv/bsvd.png?branch=master)](https://travis-ci.org/bitcoinsv/bsvd)
+[![Build Status](https://travis-ci.org/yaochaoutokyo/bsvd.png?branch=master)](https://travis-ci.org/yaochaoutokyo/bsvd)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
-[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/bitcoinsv/bsvd/mempool)
+[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/yaochaoutokyo/bsvd/mempool)
 
 Package mempool provides a policy-enforced pool of unmined bitcoin transactions.
 
@@ -74,7 +74,7 @@ be an exhaustive list.
 ## Installation and Updating
 
 ```bash
-$ go get -u github.com/bitcoinsv/bsvd/mempool
+$ go get -u github.com/yaochaoutokyo/bsvd/mempool
 ```
 
 ## License
