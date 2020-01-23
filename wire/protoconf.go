@@ -29,7 +29,12 @@ func (msg *MsgProtoconf) Bsvdecode(r io.Reader, pver uint32, enc MessageEncoding
 			"version %d", pver)
 		return messageError("MsgProtoconf.Bsvdecode", str)
 	}
-
+	if err := readElements(r, &msg.NumberOfFields); err != nil {
+		return err
+	}
+	if msg.NumberOfFields == 0 {
+		return nil
+	}
 	return readElements(r, &msg.NumberOfFields, &msg.MaxRecvPayloadLength)
 }
 
