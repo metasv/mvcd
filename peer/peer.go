@@ -1505,6 +1505,11 @@ out:
 				p.cfg.Listeners.OnFeeFilter(p, msg)
 			}
 
+		case *wire.MsgProtoconf:
+			if p.cfg.Listeners.OnProtoconf != nil {
+				p.cfg.Listeners.OnProtoconf(p, msg)
+			}
+
 		case *wire.MsgFilterAdd:
 			if p.cfg.Listeners.OnFilterAdd != nil {
 				p.cfg.Listeners.OnFilterAdd(p, msg)
