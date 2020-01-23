@@ -133,12 +133,6 @@ func main() {
 				log.Println("peer on reject...")
 				panic(msg)
 			},
-			OnPong: func(p *peer.Peer, msg *wire.MsgPong) {
-				log.Println("pong")
-			},
-			OnPing: func(p *peer.Peer, msg *wire.MsgPing) {
-				log.Println("ping")
-			},
 			OnProtoconf: func(p *peer.Peer, msg *wire.MsgProtoconf) {
 				log.Println("protoconf")
 			},
