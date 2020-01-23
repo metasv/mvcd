@@ -259,7 +259,9 @@ type server struct {
 // the blockmanager.
 type serverPeer struct {
 	// The following variables must only be used atomically
-	feeFilter int64
+	feeFilter            int64
+	numberOfFields       uint64
+	maxRecvPayloadLength uint32
 
 	*peer.Peer
 
@@ -1168,6 +1170,25 @@ func (sp *serverPeer) OnFeeFilter(_ *peer.Peer, msg *wire.MsgFeeFilter) {
 	atomic.StoreInt64(&sp.feeFilter, msg.MinFee)
 }
 
+// OnFeeFilter is invoked when a peer receives a protoconf bitcoin message and
+// is used by remote peers to confirm protocol parameters .
+func (sp *serverPeer) OnProtoconf(_ *peer.Peer, msg *wire.MsgProtoconf) {
+	// Check that the num of fields.
+	if msg.NumberOfFields == 0 {
+		atomic.StoreUint64(&sp.numberOfFields, msg.NumberOfFields)
+		return
+	}
+	if msg.NumberOfFields == 1 {
+		atomic.StoreUint64(&sp.numberOfFields, msg.NumberOfFields)
+		atomic.StoreUint32(&sp.maxRecvPayloadLength, msg.MaxRecvPayloadLength)
+		return
+	}
+
+	peerLog.Debugf("Peer %v sent an invalid protoconf '%v' -- "+
+		"disconnecting", sp, bsvutil.Amount(msg.NumberOfFields))
+	sp.Disconnect()
+}
+
 // OnFilterAdd is invoked when a peer receives a filteradd bitcoin
 // message and is used by remote peers to add data to an already loaded bloom
 // filter.  The peer will be disconnected if a filter is not loaded when this
@@ -2021,6 +2042,7 @@ func newPeerConfig(sp *serverPeer) *peer.Config {
 			OnWrite:        sp.OnWrite,
 			OnReject:       sp.OnReject,
 			OnNotFound:     sp.OnNotFound,
+			OnProtoconf:    sp.OnProtoconf,
 		},
 		AddrMe:            addrMe,
 		NewestBlock:       sp.newestBlock,
