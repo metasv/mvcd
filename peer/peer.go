@@ -163,6 +163,9 @@ type MessageListeners struct {
 	// OnFeeFilter is invoked when a peer receives a feefilter bitcoin message.
 	OnFeeFilter func(p *Peer, msg *wire.MsgFeeFilter)
 
+	// OnProtoconf is invoked when a peer receives a protoconf bitcoin message.
+	OnProtoconf func(p *Peer, msg *wire.MsgProtoconf)
+
 	// OnFilterAdd is invoked when a peer receives a filteradd bitcoin message.
 	OnFilterAdd func(p *Peer, msg *wire.MsgFilterAdd)
 

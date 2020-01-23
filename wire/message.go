@@ -67,6 +67,7 @@ const (
 	CmdCFilter      = "cfilter"
 	CmdCFHeaders    = "cfheaders"
 	CmdCFCheckpt    = "cfcheckpt"
+	CmdProtoconf    = "protoconf"
 )
 
 // MessageEncoding represents the wire message encoding format to be used.
