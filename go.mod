@@ -13,6 +13,5 @@ require (
 	github.com/jrick/logrotate v1.0.0
 	github.com/metasv/bsvlog v0.0.0-20200122093732-0e7272cda1d5
 	github.com/metasv/bsvutil v0.0.0-20200122093845-d9fabe1d7afa
-	github.com/yaochaoutokyo/bsvd v0.0.0-20200123082750-5270e56fc94d // indirect
 	golang.org/x/crypto v0.0.0-20200820211705-5c72a883971a
 )
