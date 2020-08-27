@@ -7,7 +7,7 @@ package wire
 import (
 	"io"
 
-	"github.com/yaochaoutokyo/bsvd/chaincfg/chainhash"
+	"github.com/metasv/bsvd/chaincfg/chainhash"
 )
 
 // MsgGetCFHeaders is a message similar to MsgGetHeaders, but for committed

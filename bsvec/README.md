@@ -1,9 +1,9 @@
 bsvec
 =====
 
-[![Build Status](https://travis-ci.org/yaochaoutokyo/bsvd.png?branch=master)](https://travis-ci.org/yaochaoutokyo/bsvd)
+[![Build Status](https://travis-ci.org/metasv/bsvd.png?branch=master)](https://travis-ci.org/metasv/bsvd)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
-[![GoDoc](https://godoc.org/github.com/yaochaoutokyo/bsvd/bsvec?status.png)](http://godoc.org/github.com/yaochaoutokyo/bsvd/bsvec)
+[![GoDoc](https://godoc.org/github.com/metasv/bsvd/bsvec?status.png)](http://godoc.org/github.com/metasv/bsvd/bsvec)
 
 Package bsvec implements elliptic curve cryptography needed for working with
 Bitcoin (secp256k1 only for now). It is designed so that it may be used with the
@@ -20,24 +20,24 @@ use secp256k1 elliptic curve cryptography.
 ## Installation and Updating
 
 ```bash
-$ go get -u github.com/yaochaoutokyo/bsvd/bsvec
+$ go get -u github.com/metasv/bsvd/bsvec
 ```
 
 ## Examples
 
-* [Sign Message](http://godoc.org/github.com/yaochaoutokyo/bsvd/bsvec#example-package--SignMessage)  
+* [Sign Message](http://godoc.org/github.com/metasv/bsvd/bsvec#example-package--SignMessage)  
   Demonstrates signing a message with a secp256k1 private key that is first
   parsed form raw bytes and serializing the generated signature.
 
-* [Verify Signature](http://godoc.org/github.com/yaochaoutokyo/bsvd/bsvec#example-package--VerifySignature)  
+* [Verify Signature](http://godoc.org/github.com/metasv/bsvd/bsvec#example-package--VerifySignature)  
   Demonstrates verifying a secp256k1 signature against a public key that is
   first parsed from raw bytes.  The signature is also parsed from raw bytes.
 
-* [Encryption](http://godoc.org/github.com/yaochaoutokyo/bsvd/bsvec#example-package--EncryptMessage)
+* [Encryption](http://godoc.org/github.com/metasv/bsvd/bsvec#example-package--EncryptMessage)
   Demonstrates encrypting a message for a public key that is first parsed from
   raw bytes, then decrypting it using the corresponding private key.
 
-* [Decryption](http://godoc.org/github.com/yaochaoutokyo/bsvd/bsvec#example-package--DecryptMessage)
+* [Decryption](http://godoc.org/github.com/metasv/bsvd/bsvec#example-package--DecryptMessage)
   Demonstrates decrypting a message using a private key that is first parsed
   from raw bytes.
 

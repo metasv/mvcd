@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/yaochaoutokyo/bsvd/chaincfg/chainhash"
-	"github.com/yaochaoutokyo/bsvd/wire"
+	"github.com/metasv/bsvd/chaincfg/chainhash"
+	"github.com/metasv/bsvd/wire"
 )
 
 // These variables are the chain proof-of-work limit parameters for each default
@@ -231,7 +231,7 @@ var MainNetParams = Params{
 	Net:         wire.MainNet,
 	DefaultPort: "8333",
 	DNSSeeds: []DNSSeed{
-		{"seed.yaochaoutokyo.io", true},
+		{"seed.metasv.io", true},
 		{"btccash-seeder.bitcoinunlimited.info", true},
 	},
 
@@ -405,7 +405,7 @@ var TestNet3Params = Params{
 	Net:         wire.TestNet3,
 	DefaultPort: "18333",
 	DNSSeeds: []DNSSeed{
-		{"testnet-seed.yaochaoutokyo.io", true},
+		{"testnet-seed.metasv.io", true},
 		{"testnet-btccash-seeder.bitcoinunlimited.info", true},
 	},
 

@@ -9,7 +9,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/yaochaoutokyo/bsvutil"
+	"github.com/metasv/bsvutil"
 )
 
 // TestTxFeePrioHeap ensures the priority queue for transaction fees and

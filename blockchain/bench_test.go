@@ -7,7 +7,7 @@ package blockchain
 import (
 	"testing"
 
-	"github.com/yaochaoutokyo/bsvutil"
+	"github.com/metasv/bsvutil"
 )
 
 // BenchmarkIsCoinBase performs a simple benchmark against the IsCoinBase

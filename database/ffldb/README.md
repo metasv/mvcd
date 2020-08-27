@@ -1,9 +1,9 @@
 ffldb
 =====
 
-[![Build Status](https://travis-ci.org/yaochaoutokyo/bsvd.png?branch=master)](https://travis-ci.org/yaochaoutokyo/bsvd)
+[![Build Status](https://travis-ci.org/metasv/bsvd.png?branch=master)](https://travis-ci.org/metasv/bsvd)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
-[![GoDoc](https://godoc.org/github.com/yaochaoutokyo/bsvd/database/ffldb?status.png)](http://godoc.org/github.com/yaochaoutokyo/bsvd/database/ffldb)
+[![GoDoc](https://godoc.org/github.com/metasv/bsvd/database/ffldb?status.png)](http://godoc.org/github.com/metasv/bsvd/database/ffldb)
 =======
 
 Package ffldb implements a driver for the database package that uses leveldb for

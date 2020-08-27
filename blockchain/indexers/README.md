@@ -1,9 +1,9 @@
 indexers
 ========
 
-[![Build Status](https://travis-ci.org/yaochaoutokyo/bsvd.png?branch=master)](https://travis-ci.org/yaochaoutokyo/bsvd)
+[![Build Status](https://travis-ci.org/metasv/bsvd.png?branch=master)](https://travis-ci.org/metasv/bsvd)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
-[![GoDoc](https://godoc.org/github.com/yaochaoutokyo/bsvd/blockchain/indexers?status.png)](http://godoc.org/github.com/yaochaoutokyo/bsvd/blockchain/indexers)
+[![GoDoc](https://godoc.org/github.com/metasv/bsvd/blockchain/indexers?status.png)](http://godoc.org/github.com/metasv/bsvd/blockchain/indexers)
 
 Package indexers implements optional block chain indexes.
 
@@ -23,7 +23,7 @@ via an RPC interface.
 ## Installation
 
 ```bash
-$ go get -u github.com/yaochaoutokyo/bsvd/blockchain/indexers
+$ go get -u github.com/metasv/bsvd/blockchain/indexers
 ```
 
 ## License

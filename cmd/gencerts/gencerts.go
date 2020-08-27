@@ -13,7 +13,7 @@ import (
 	"time"
 
 	flags "github.com/jessevdk/go-flags"
-	"github.com/yaochaoutokyo/bsvutil"
+	"github.com/metasv/bsvutil"
 )
 
 type config struct {

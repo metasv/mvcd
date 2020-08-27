@@ -15,11 +15,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/yaochaoutokyo/bsvd/chaincfg"
-	"github.com/yaochaoutokyo/bsvd/chaincfg/chainhash"
-	"github.com/yaochaoutokyo/bsvd/rpcclient"
-	"github.com/yaochaoutokyo/bsvd/wire"
-	"github.com/yaochaoutokyo/bsvutil"
+	"github.com/metasv/bsvd/chaincfg"
+	"github.com/metasv/bsvd/chaincfg/chainhash"
+	"github.com/metasv/bsvd/rpcclient"
+	"github.com/metasv/bsvd/wire"
+	"github.com/metasv/bsvutil"
 )
 
 const (

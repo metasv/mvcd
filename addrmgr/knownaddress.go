@@ -7,7 +7,7 @@ package addrmgr
 import (
 	"time"
 
-	"github.com/yaochaoutokyo/bsvd/wire"
+	"github.com/metasv/bsvd/wire"
 )
 
 // KnownAddress tracks information about a known network address that is used

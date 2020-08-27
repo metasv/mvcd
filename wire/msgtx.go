@@ -10,7 +10,7 @@ import (
 	"io"
 	"strconv"
 
-	"github.com/yaochaoutokyo/bsvd/chaincfg/chainhash"
+	"github.com/metasv/bsvd/chaincfg/chainhash"
 )
 
 const (

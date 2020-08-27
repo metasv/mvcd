@@ -19,7 +19,7 @@
 5. [Developer Resources](#DeveloperResources)
     1. [Code Contribution Guidelines](#ContributionGuidelines)
     2. [JSON-RPC Reference](#JSONRPCReference)
-    3. [The yaochaoutokyo Bitcoin Cash-related Go Packages](#GoPackages)
+    3. [The metasv Bitcoin Cash-related Go Packages](#GoPackages)
 
 <a name="About" />
 
@@ -27,12 +27,12 @@
 
 bsvd is an alternative full node bitcoin cash implementation written in Go (golang).
 
-This project is a port of the [bsvd](https://github.com/yaochaoutokyo/bsvd) codebase to Bitcoin Cash. It provides a high powered
+This project is a port of the [bsvd](https://github.com/metasv/bsvd) codebase to Bitcoin Cash. It provides a high powered
 and reliable blockchain server which makes it a suitable backend to serve blockchain data to lite clients and block explorers
 or to power your local wallet.
 
 bsvd does not include any wallet functionality by design as it makes the codebase more modular and easy to maintain. 
-The [bsvwallet](https://github.com/yaochaoutokyo/bsvwallet) is a separate application that provides a secure Bitcoin Cash wallet 
+The [bsvwallet](https://github.com/metasv/bsvwallet) is a separate application that provides a secure Bitcoin Cash wallet 
 that communicates with your running bsvd instance via the API.
 
 <a name="GettingStarted" />
@@ -43,7 +43,7 @@ that communicates with your running bsvd instance via the API.
 
 **2.1 Installation**
 
-The easiest way to run the server is to download a pre-built binary. You can find binaries of our latest release for each operating system at the [releases page](https://github.com/yaochaoutokyo/bsvd/releases).
+The easiest way to run the server is to download a pre-built binary. You can find binaries of our latest release for each operating system at the [releases page](https://github.com/metasv/bsvd/releases).
 
 <a name="WindowsInstallation" />
 
@@ -57,14 +57,14 @@ If you prefer to install from source do the following:
 - Run the following commands to obtain bsvd, all dependencies, and install it:
 
 ```bash
-$ go get github.com/yaochaoutokyo/bsvd
+$ go get github.com/metasv/bsvd
 ```
 
 This will download and compile `bsvd` and put it in your path.
 
 **2.2 Configuration**
 
-bsvd has a number of [configuration](http://godoc.org/github.com/yaochaoutokyo/bsvd)
+bsvd has a number of [configuration](http://godoc.org/github.com/metasv/bsvd)
 options, which can be viewed by running: `$ bsvd --help`.
 
 <a name="BsvctlConfig" />
@@ -149,23 +149,23 @@ configuration necessary, however, there is an optional method to use a
 
 **3.1.1 bootstrap.dat**
 
-* [Using bootstrap.dat](https://github.com/yaochaoutokyo/bsvd/tree/master/docs/using_bootstrap_dat.md)
+* [Using bootstrap.dat](https://github.com/metasv/bsvd/tree/master/docs/using_bootstrap_dat.md)
 
 <a name="NetworkConfig" />
 
 **3.1.2 Network Configuration**
 
-* [What Ports Are Used by Default?](https://github.com/yaochaoutokyo/bsvd/tree/master/docs/default_ports.md)
-* [How To Listen on Specific Interfaces](https://github.com/yaochaoutokyo/bsvd/tree/master/docs/configure_peer_server_listen_interfaces.md)
-* [How To Configure RPC Server to Listen on Specific Interfaces](https://github.com/yaochaoutokyo/bsvd/tree/master/docs/configure_rpc_server_listen_interfaces.md)
-* [Configuring bsvd with Tor](https://github.com/yaochaoutokyo/bsvd/tree/master/docs/configuring_tor.md)
+* [What Ports Are Used by Default?](https://github.com/metasv/bsvd/tree/master/docs/default_ports.md)
+* [How To Listen on Specific Interfaces](https://github.com/metasv/bsvd/tree/master/docs/configure_peer_server_listen_interfaces.md)
+* [How To Configure RPC Server to Listen on Specific Interfaces](https://github.com/metasv/bsvd/tree/master/docs/configure_rpc_server_listen_interfaces.md)
+* [Configuring bsvd with Tor](https://github.com/metasv/bsvd/tree/master/docs/configuring_tor.md)
 
 <a name="Wallet" />
 
 **3.1 Wallet**
 
 bsvd was intentionally developed without an integrated wallet for security
-reasons.  Please see [bsvwallet](https://github.com/yaochaoutokyo/bsvwallet) for more
+reasons.  Please see [bsvwallet](https://github.com/metasv/bsvwallet) for more
 information.
 
 <a name="DeveloperResources" />
@@ -174,42 +174,42 @@ information.
 
 <a name="ContributionGuidelines" />
 
-* [Code Contribution Guidelines](https://github.com/yaochaoutokyo/bsvd/tree/master/docs/code_contribution_guidelines.md)
+* [Code Contribution Guidelines](https://github.com/metasv/bsvd/tree/master/docs/code_contribution_guidelines.md)
 
 <a name="JSONRPCReference" />
 
-* [JSON-RPC Reference](https://github.com/yaochaoutokyo/bsvd/tree/master/docs/json_rpc_api.md)
-    * [RPC Examples](https://github.com/yaochaoutokyo/bsvd/tree/master/docs/json_rpc_api.md#ExampleCode)
+* [JSON-RPC Reference](https://github.com/metasv/bsvd/tree/master/docs/json_rpc_api.md)
+    * [RPC Examples](https://github.com/metasv/bsvd/tree/master/docs/json_rpc_api.md#ExampleCode)
 
 <a name="GoPackages" />
 
-* The yaochaoutokyo Bitcoin Cash-related Go Packages:
-    * [pcclient](https://github.com/yaochaoutokyo/bsvd/tree/master/rpcclient) - Implements a
+* The metasv Bitcoin Cash-related Go Packages:
+    * [pcclient](https://github.com/metasv/bsvd/tree/master/rpcclient) - Implements a
       robust and easy to use Websocket-enabled Bitcoin JSON-RPC client
-    * [btcjson](https://github.com/yaochaoutokyo/bsvd/tree/master/btcjson) - Provides an extensive API
+    * [btcjson](https://github.com/metasv/bsvd/tree/master/btcjson) - Provides an extensive API
       for the underlying JSON-RPC command and return values
-    * [wire](https://github.com/yaochaoutokyo/bsvd/tree/master/wire) - Implements the
+    * [wire](https://github.com/metasv/bsvd/tree/master/wire) - Implements the
       Bitcoin wire protocol
-    * [peer](https://github.com/yaochaoutokyo/bsvd/tree/master/peer) -
+    * [peer](https://github.com/metasv/bsvd/tree/master/peer) -
       Provides a common base for creating and managing Bitcoin network peers.
-    * [blockchain](https://github.com/yaochaoutokyo/bsvd/tree/master/blockchain) -
+    * [blockchain](https://github.com/metasv/bsvd/tree/master/blockchain) -
       Implements Bitcoin block handling and chain selection rules
-    * [blockchain/fullblocktests](https://github.com/yaochaoutokyo/bsvd/tree/master/blockchain/fullblocktests) -
+    * [blockchain/fullblocktests](https://github.com/metasv/bsvd/tree/master/blockchain/fullblocktests) -
       Provides a set of block tests for testing the consensus validation rules
-    * [txscript](https://github.com/yaochaoutokyo/bsvd/tree/master/txscript) -
+    * [txscript](https://github.com/metasv/bsvd/tree/master/txscript) -
       Implements the Bitcoin transaction scripting language
-    * [bsvec](https://github.com/yaochaoutokyo/bsvd/tree/master/bsvec) - Implements
+    * [bsvec](https://github.com/metasv/bsvd/tree/master/bsvec) - Implements
       support for the elliptic curve cryptographic functions needed for the
       Bitcoin scripts
-    * [database](https://github.com/yaochaoutokyo/bsvd/tree/master/database) -
+    * [database](https://github.com/metasv/bsvd/tree/master/database) -
       Provides a database interface for the Bitcoin block chain
-    * [mempool](https://github.com/yaochaoutokyo/bsvd/tree/master/mempool) -
+    * [mempool](https://github.com/metasv/bsvd/tree/master/mempool) -
       Package mempool provides a policy-enforced pool of unmined bitcoin
       transactions.
-    * [bsvutil](https://github.com/yaochaoutokyo/bsvutil) - Provides Bitcoin-specific
+    * [bsvutil](https://github.com/metasv/bsvutil) - Provides Bitcoin-specific
       convenience functions and types
-    * [chainhash](https://github.com/yaochaoutokyo/bsvd/tree/master/chaincfg/chainhash) -
+    * [chainhash](https://github.com/metasv/bsvd/tree/master/chaincfg/chainhash) -
       Provides a generic hash type and associated functions that allows the
       specific hash algorithm to be abstracted.
-    * [connmgr](https://github.com/yaochaoutokyo/bsvd/tree/master/connmgr) -
+    * [connmgr](https://github.com/metasv/bsvd/tree/master/connmgr) -
       Package connmgr implements a generic Bitcoin network connection manager.

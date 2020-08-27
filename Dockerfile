@@ -5,10 +5,10 @@ FROM golang
 LABEL maintainer="Josh Ellithorpe <quest@mac.com>"
 
 # Copy the local package files to the container's workspace.
-ADD . /go/src/github.com/yaochaoutokyo/bsvd
+ADD . /go/src/github.com/metasv/bsvd
 
 # Switch to the correct working directory.
-WORKDIR /go/src/github.com/yaochaoutokyo/bsvd
+WORKDIR /go/src/github.com/metasv/bsvd
 
 # Restore vendored packages.
 RUN go get -u github.com/golang/dep/cmd/dep

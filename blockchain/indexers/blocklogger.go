@@ -10,8 +10,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/yaochaoutokyo/bsvlog"
-	"github.com/yaochaoutokyo/bsvutil"
+	"github.com/metasv/bsvlog"
+	"github.com/metasv/bsvutil"
 )
 
 // blockProgressLogger provides periodic logging for other services in order

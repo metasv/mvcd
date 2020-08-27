@@ -45,7 +45,7 @@ func bsvdExecutablePath() (string, error) {
 		return "", err
 	}
 
-	// Determine import path of this package. Not necessarily yaochaoutokyo/bsvd if
+	// Determine import path of this package. Not necessarily metasv/bsvd if
 	// this is a forked repo.
 	_, rpctestDir, _, ok := runtime.Caller(1)
 	if !ok {

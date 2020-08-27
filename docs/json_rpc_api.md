@@ -36,7 +36,7 @@ differences between bsvd and bitcoind as far as how RPCs are serviced:
   further details on why they were separated.  This means that if you are
   talking directly to bsvd, only chain-related RPCs are available.  However both
   chain-related and wallet-related RPCs are available via
-  [bsvwallet](https://github.com/yaochaoutokyo/bsvwallet).
+  [bsvwallet](https://github.com/metasv/bsvwallet).
 * bsvd is secure by default which means that the RPC connection is TLS-enabled
   by default
 * bsvd provides access to the API through both
@@ -1074,7 +1074,7 @@ various languages.
 **9.1 Go**
 
 This section provides examples of using the RPC interface using Go and the
-[rpcclient](https://github.com/yaochaoutokyo/bsvd/rpcclient) package.
+[rpcclient](https://github.com/metasv/bsvd/rpcclient) package.
 
 * [Using getblockcount to Retrieve the Current Block Height](#ExampleGetBlockCount)
 * [Using getblock to Retrieve the Genesis Block](#ExampleGetBlock)
@@ -1086,7 +1086,7 @@ This section provides examples of using the RPC interface using Go and the
 **9.1.1 Using getblockcount to Retrieve the Current Block Height**<br />
 
 The following is an example Go application which uses the
-[rpcclient](https://github.com/yaochaoutokyo/bsvd/rpcclient) package to connect with
+[rpcclient](https://github.com/metasv/bsvd/rpcclient) package to connect with
 a bsvd instance via Websockets, issues [getblockcount](#getblockcount) to
 retrieve the current block height, and displays it.
 
@@ -1094,8 +1094,8 @@ retrieve the current block height, and displays it.
 package main
 
 import (
-	"github.com/yaochaoutokyo/bsvd/rpcclient"
-	"github.com/yaochaoutokyo/bsvutil"
+	"github.com/metasv/bsvd/rpcclient"
+	"github.com/metasv/bsvutil"
 	"io/ioutil"
 	"log"
 	"path/filepath"
@@ -1147,7 +1147,7 @@ Block count: 276978
 **9.1.2 Using getblock to Retrieve the Genesis Block**<br />
 
 The following is an example Go application which uses the
-[rpcclient](https://github.com/yaochaoutokyo/bsvd/rpcclient) package to connect with
+[rpcclient](https://github.com/metasv/bsvd/rpcclient) package to connect with
 a bsvd instance via Websockets, issues [getblock](#getblock) to retrieve
 information about the Genesis block, and display a few details about it.
 
@@ -1155,10 +1155,10 @@ information about the Genesis block, and display a few details about it.
 package main
 
 import (
-	"github.com/yaochaoutokyo/bsvd/rpcclient"
-	"github.com/yaochaoutokyo/bsvutil"
-	"github.com/yaochaoutokyo/bsvd/chaincfg/chainhash"
-	"github.com/yaochaoutokyo/bsvd/wire"
+	"github.com/metasv/bsvd/rpcclient"
+	"github.com/metasv/bsvutil"
+	"github.com/metasv/bsvd/chaincfg/chainhash"
+	"github.com/metasv/bsvd/wire"
 	"io/ioutil"
 	"log"
 	"path/filepath"
@@ -1237,7 +1237,7 @@ Num transactions: 1
 Notifications (Websocket-specific)**<br />
 
 The following is an example Go application which uses the
-[rpcclient](https://github.com/yaochaoutokyo/bsvd/rpcclient) package to connect with
+[rpcclient](https://github.com/metasv/bsvd/rpcclient) package to connect with
 a bsvd instance via Websockets and registers for
 [blockconnected](#blockconnected) and [blockdisconnected](#blockdisconnected)
 notifications with [notifyblocks](#notifyblocks).  It also sets up handlers for
@@ -1247,10 +1247,10 @@ the notifications.
 package main
 
 import (
-	"github.com/yaochaoutokyo/bsvd/rpcclient"
-	"github.com/yaochaoutokyo/bsvutil"
-	"github.com/yaochaoutokyo/bsvd/chaincfg/chainhash"
-	"github.com/yaochaoutokyo/bsvd/wire"
+	"github.com/metasv/bsvd/rpcclient"
+	"github.com/metasv/bsvutil"
+	"github.com/metasv/bsvd/chaincfg/chainhash"
+	"github.com/metasv/bsvd/wire"
 	"io/ioutil"
 	"log"
 	"path/filepath"

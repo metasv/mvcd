@@ -8,9 +8,9 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/yaochaoutokyo/bsvd/database"
-	_ "github.com/yaochaoutokyo/bsvd/database/ffldb"
-	"github.com/yaochaoutokyo/bsvd/wire"
+	"github.com/metasv/bsvd/database"
+	_ "github.com/metasv/bsvd/database/ffldb"
+	"github.com/metasv/bsvd/wire"
 )
 
 // fixedExcessiveBlockSize should not be the default -we want to ensure it will work in all cases

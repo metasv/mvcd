@@ -10,20 +10,20 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/yaochaoutokyo/bsvd/addrmgr"
-	"github.com/yaochaoutokyo/bsvd/blockchain"
-	"github.com/yaochaoutokyo/bsvd/blockchain/indexers"
-	"github.com/yaochaoutokyo/bsvd/connmgr"
-	"github.com/yaochaoutokyo/bsvd/database"
-	"github.com/yaochaoutokyo/bsvd/mempool"
-	"github.com/yaochaoutokyo/bsvd/mining"
-	"github.com/yaochaoutokyo/bsvd/mining/cpuminer"
-	"github.com/yaochaoutokyo/bsvd/netsync"
-	"github.com/yaochaoutokyo/bsvd/peer"
-	"github.com/yaochaoutokyo/bsvd/txscript"
+	"github.com/metasv/bsvd/addrmgr"
+	"github.com/metasv/bsvd/blockchain"
+	"github.com/metasv/bsvd/blockchain/indexers"
+	"github.com/metasv/bsvd/connmgr"
+	"github.com/metasv/bsvd/database"
+	"github.com/metasv/bsvd/mempool"
+	"github.com/metasv/bsvd/mining"
+	"github.com/metasv/bsvd/mining/cpuminer"
+	"github.com/metasv/bsvd/netsync"
+	"github.com/metasv/bsvd/peer"
+	"github.com/metasv/bsvd/txscript"
 
 	"github.com/jrick/logrotate/rotator"
-	"github.com/yaochaoutokyo/bsvlog"
+	"github.com/metasv/bsvlog"
 )
 
 // logWriter implements an io.Writer that outputs to both standard output and

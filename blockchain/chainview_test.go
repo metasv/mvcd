@@ -10,7 +10,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/yaochaoutokyo/bsvd/wire"
+	"github.com/metasv/bsvd/wire"
 )
 
 // testNoncePrng provides a deterministic prng for the nonce in generated fake

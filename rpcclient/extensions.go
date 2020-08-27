@@ -12,10 +12,10 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/yaochaoutokyo/bsvd/btcjson"
-	"github.com/yaochaoutokyo/bsvd/chaincfg/chainhash"
-	"github.com/yaochaoutokyo/bsvd/wire"
-	"github.com/yaochaoutokyo/bsvutil"
+	"github.com/metasv/bsvd/btcjson"
+	"github.com/metasv/bsvd/chaincfg/chainhash"
+	"github.com/metasv/bsvd/wire"
+	"github.com/metasv/bsvutil"
 )
 
 // FutureDebugLevelResult is a future promise to deliver the result of a
@@ -466,7 +466,7 @@ func (c *Client) VersionAsync() FutureVersionResult {
 
 // Version returns information about the server's JSON-RPC API versions.
 //
-// NOTE: This is a yaochaoutokyo extension ported from
+// NOTE: This is a metasv extension ported from
 // github.com/decred/dcrrpcclient.
 func (c *Client) Version() (map[string]btcjson.VersionResult, error) {
 	return c.VersionAsync().Receive()

@@ -7,7 +7,7 @@ package database
 import (
 	"fmt"
 
-	"github.com/yaochaoutokyo/bsvlog"
+	"github.com/metasv/bsvlog"
 )
 
 // Driver defines a structure for backend drivers to use when they registered

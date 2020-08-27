@@ -1,11 +1,11 @@
 integration
 ===========
 
-[![Build Status](https://travis-ci.org/yaochaoutokyo/bsvd.png?branch=master)](https://travis-ci.org/yaochaoutokyo/bsvd)
+[![Build Status](https://travis-ci.org/metasv/bsvd.png?branch=master)](https://travis-ci.org/metasv/bsvd)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
 
 This contains integration tests which make use of the
-[rpctest](https://github.com/yaochaoutokyo/bsvd/tree/master/integration/rpctest)
+[rpctest](https://github.com/metasv/bsvd/tree/master/integration/rpctest)
 package to programmatically drive nodes via RPC.
 
 ## License

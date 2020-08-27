@@ -10,9 +10,9 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/yaochaoutokyo/bsvd/txscript"
-	"github.com/yaochaoutokyo/bsvd/wire"
-	"github.com/yaochaoutokyo/bsvutil"
+	"github.com/metasv/bsvd/txscript"
+	"github.com/metasv/bsvd/wire"
+	"github.com/metasv/bsvutil"
 )
 
 // txValidateItem holds a transaction along with which input to validate.

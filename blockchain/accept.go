@@ -7,8 +7,8 @@ package blockchain
 import (
 	"fmt"
 
-	"github.com/yaochaoutokyo/bsvd/database"
-	"github.com/yaochaoutokyo/bsvutil"
+	"github.com/metasv/bsvd/database"
+	"github.com/metasv/bsvutil"
 )
 
 // maybeAcceptBlock potentially accepts a block into the block chain and, if

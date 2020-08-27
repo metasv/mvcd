@@ -1,9 +1,9 @@
 peer
 ====
 
-[![Build Status](https://travis-ci.org/yaochaoutokyo/bsvd.png?branch=master)](https://travis-ci.org/yaochaoutokyo/bsvd)
+[![Build Status](https://travis-ci.org/metasv/bsvd.png?branch=master)](https://travis-ci.org/metasv/bsvd)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
-[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/yaochaoutokyo/bsvd/peer)
+[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/metasv/bsvd/peer)
 
 Package peer provides a common base for creating and managing bitcoin 
 network peers.
@@ -58,12 +58,12 @@ A quick overview of the major features peer provides are as follows:
 ## Installation and Updating
 
 ```bash
-$ go get -u github.com/yaochaoutokyo/bsvd/peer
+$ go get -u github.com/metasv/bsvd/peer
 ```
 
 ## Examples
 
-* [New Outbound Peer Example](https://godoc.org/github.com/yaochaoutokyo/bsvd/peer#example-package--NewOutboundPeer)  
+* [New Outbound Peer Example](https://godoc.org/github.com/metasv/bsvd/peer#example-package--NewOutboundPeer)  
   Demonstrates the basic process for initializing and creating an outbound peer.
   Peers negotiate by exchanging version and verack messages.  For demonstration,
   a simple handler for the version message is attached to the peer.

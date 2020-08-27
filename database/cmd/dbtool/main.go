@@ -11,8 +11,8 @@ import (
 	"strings"
 
 	flags "github.com/jessevdk/go-flags"
-	"github.com/yaochaoutokyo/bsvd/database"
-	"github.com/yaochaoutokyo/bsvlog"
+	"github.com/metasv/bsvd/database"
+	"github.com/metasv/bsvlog"
 )
 
 const (

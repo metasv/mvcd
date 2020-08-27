@@ -5,7 +5,7 @@
 package cpuminer
 
 import (
-	"github.com/yaochaoutokyo/bsvlog"
+	"github.com/metasv/bsvlog"
 )
 
 // log is a logger that is initialized with no output filters.  This
