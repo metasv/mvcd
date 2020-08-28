@@ -8,7 +8,6 @@ import (
 	"errors"
 	"math"
 	"math/big"
-	"strings"
 	"time"
 
 	"github.com/metasv/bsvd/chaincfg/chainhash"
@@ -208,9 +207,6 @@ type Params struct {
 	// Mempool parameters
 	RelayNonStdTxs bool
 
-	// The prefix used for the cashaddress. This is different for each network.
-	CashAddressPrefix string
-
 	// Address encoding magics
 	LegacyPubKeyHashAddrID byte // First byte of a P2PKH address
 	LegacyScriptHashAddrID byte // First byte of a P2SH address
@@ -307,9 +303,6 @@ var MainNetParams = Params{
 	// Mempool parameters
 	RelayNonStdTxs: false,
 
-	// The prefix for the cashaddress
-	CashAddressPrefix: "bitcoincash", // always bitcoincash for mainnet
-
 	// Address encoding magics
 	LegacyPubKeyHashAddrID: 0x00, // starts with 1
 	LegacyScriptHashAddrID: 0x05, // starts with 3
@@ -379,9 +372,6 @@ var RegressionNetParams = Params{
 
 	// Mempool parameters
 	RelayNonStdTxs: true,
-
-	// The prefix for the cashaddress
-	CashAddressPrefix: "bsvreg", // always bsvreg for reg testnet
 
 	// Address encoding magics
 	LegacyPubKeyHashAddrID: 0x6f, // starts with m or n
@@ -468,9 +458,6 @@ var TestNet3Params = Params{
 	// Mempool parameters
 	RelayNonStdTxs: true,
 
-	// The prefix for the cashaddress
-	CashAddressPrefix: "bsvtest", // always bsvtest for testnet
-
 	// Address encoding magics
 	LegacyPubKeyHashAddrID: 0x6f, // starts with m or n
 	LegacyScriptHashAddrID: 0xc4, // starts with 2
@@ -543,9 +530,6 @@ var SimNetParams = Params{
 	// Mempool parameters
 	RelayNonStdTxs: true,
 
-	// The prefix for the cashaddress
-	CashAddressPrefix: "bsvsim", // always bsvsim for simnet
-
 	// Address encoding magics
 	LegacyPubKeyHashAddrID: 0x3f, // starts with S
 	LegacyScriptHashAddrID: 0x7b, // starts with s
@@ -573,11 +557,10 @@ var (
 )
 
 var (
-	registeredNets      = make(map[wire.BitcoinNet]struct{})
-	pubKeyHashAddrIDs   = make(map[byte]struct{})
-	scriptHashAddrIDs   = make(map[byte]struct{})
-	cashAddressPrefixes = make(map[string]struct{})
-	hdPrivToPubKeyIDs   = make(map[[4]byte][]byte)
+	registeredNets    = make(map[wire.BitcoinNet]struct{})
+	pubKeyHashAddrIDs = make(map[byte]struct{})
+	scriptHashAddrIDs = make(map[byte]struct{})
+	hdPrivToPubKeyIDs = make(map[[4]byte][]byte)
 )
 
 // String returns the hostname of the DNS seed in human-readable form.
@@ -603,8 +586,6 @@ func Register(params *Params) error {
 	scriptHashAddrIDs[params.LegacyScriptHashAddrID] = struct{}{}
 	hdPrivToPubKeyIDs[params.HDPrivateKeyID] = params.HDPublicKeyID[:]
 
-	// A valid cashaddress prefix for the given net followed by ':'.
-	cashAddressPrefixes[params.CashAddressPrefix+":"] = struct{}{}
 	return nil
 }
 
@@ -635,15 +616,6 @@ func IsPubKeyHashAddrID(id byte) bool {
 // undeterminable (if both return true).
 func IsScriptHashAddrID(id byte) bool {
 	_, ok := scriptHashAddrIDs[id]
-	return ok
-}
-
-// IsCashAddressPrefix returns whether the prefix is a known prefix for the
-// cashaddress on any default or registered network.  This is used when decoding
-// an address string into a specific address type.
-func IsCashAddressPrefix(prefix string) bool {
-	prefix = strings.ToLower(prefix)
-	_, ok := cashAddressPrefixes[prefix]
 	return ok
 }
 
