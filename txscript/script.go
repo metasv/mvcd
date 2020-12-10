@@ -697,6 +697,9 @@ func IsUnspendable(pkScript []byte) bool {
 	if err != nil {
 		return true
 	}
-
+	// op_false op_return
+	if len(pops) > 1 && pops[0].opcode.value == OP_FALSE && pops[1].opcode.value == OP_RETURN {
+		return true
+	}
 	return len(pops) > 0 && pops[0].opcode.value == OP_RETURN
 }
