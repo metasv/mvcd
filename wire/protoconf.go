@@ -19,7 +19,7 @@ type MsgProtoconf struct {
 
 // MaxProtoconfPayload is the maximum number of bytes a protoconf can be.
 // NumberOfFields 8 bytes + MaxRecvPayloadLength 4 bytes
-const MaxProtoconfPayload = 12
+const MaxProtoconfPayload = 1048576
 
 // Bsvdecode decodes r using the bitcoin protocol encoding into the receiver.
 // This is part of the Message interface implementation.
