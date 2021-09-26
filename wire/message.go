@@ -24,7 +24,7 @@ const CommandSize = 12
 
 // ebs is the excessive block size, used to determine reasonable maximum message sizes.
 // 32MB is the current default value
-var ebs uint32 = 32000000
+var ebs uint32 = 3200000000
 
 // SetLimits adjusts various message limits based on max block size configuration.
 func SetLimits(excessiveBlockSize uint32) {
