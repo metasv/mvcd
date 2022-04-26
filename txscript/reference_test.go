@@ -15,9 +15,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/metasv/bsvutil"
 	"github.com/metasv/mvcd/chaincfg/chainhash"
 	"github.com/metasv/mvcd/wire"
+	"github.com/metasv/mvcutil"
 )
 
 // fixedExcessiveBlockSize should not be the default -we want to ensure it will work in all cases
@@ -312,7 +312,7 @@ func testScripts(t *testing.T, tests [][]interface{}, useSigCache bool) {
 			continue
 		}
 
-		var inputAmt bsvutil.Amount
+		var inputAmt mvcutil.Amount
 
 		// Extract and parse the signature script from the test fields.
 		scriptSigStr, ok := test[0].(string)
@@ -485,7 +485,7 @@ testloop:
 			continue
 		}
 
-		tx, err := bsvutil.NewTxFromBytes(serializedTx)
+		tx, err := mvcutil.NewTxFromBytes(serializedTx)
 		if err != nil {
 			t.Errorf("bad test (arg 2 not msgtx %v) %d: %v", err,
 				i, test)
@@ -640,7 +640,7 @@ testloop:
 			continue
 		}
 
-		tx, err := bsvutil.NewTxFromBytes(serializedTx)
+		tx, err := mvcutil.NewTxFromBytes(serializedTx)
 		if err != nil {
 			t.Errorf("bad test (arg 2 not msgtx %v) %d: %v", err,
 				i, test)

@@ -206,7 +206,7 @@ information.
     * [mempool](https://github.com/metasv/mvcd/tree/master/mempool) -
       Package mempool provides a policy-enforced pool of unmined bitcoin
       transactions.
-    * [bsvutil](https://github.com/metasv/bsvutil) - Provides Bitcoin-specific
+    * [mvcutil](https://github.com/metasv/mvcutil) - Provides Bitcoin-specific
       convenience functions and types
     * [chainhash](https://github.com/metasv/mvcd/tree/master/chaincfg/chainhash) -
       Provides a generic hash type and associated functions that allows the

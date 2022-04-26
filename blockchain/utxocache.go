@@ -9,11 +9,11 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/metasv/bsvutil"
 	"github.com/metasv/mvcd/chaincfg/chainhash"
 	"github.com/metasv/mvcd/database"
 	"github.com/metasv/mvcd/txscript"
 	"github.com/metasv/mvcd/wire"
+	"github.com/metasv/mvcutil"
 )
 
 const (
@@ -389,7 +389,7 @@ func (s *utxoCache) addEntry(outpoint wire.OutPoint, entry *UtxoEntry, overwrite
 // FetchTxView returns a local view on the utxo state for the given transaction.
 //
 // This method is safe for concurrent access.
-func (s *utxoCache) FetchTxView(tx *bsvutil.Tx) (*UtxoViewpoint, error) {
+func (s *utxoCache) FetchTxView(tx *mvcutil.Tx) (*UtxoViewpoint, error) {
 	s.mtx.Lock()
 	defer s.mtx.Unlock()
 
@@ -424,7 +424,7 @@ func (s *utxoCache) FetchTxView(tx *bsvutil.Tx) (*UtxoViewpoint, error) {
 // so the returned view can be examined for duplicate transactions.
 //
 // This function is safe for concurrent access however the returned view is NOT.
-func (b *BlockChain) FetchUtxoView(tx *bsvutil.Tx) (*UtxoViewpoint, error) {
+func (b *BlockChain) FetchUtxoView(tx *mvcutil.Tx) (*UtxoViewpoint, error) {
 	b.chainLock.RLock()
 	defer b.chainLock.RUnlock()
 	return b.utxoCache.FetchTxView(tx)
@@ -595,7 +595,7 @@ func (s *utxoCache) Flush(mode FlushMode, bestState *BestState) error {
 // state is invalid.
 //
 // This method should be called with the state lock held.
-func (s *utxoCache) rollBackBlock(block *bsvutil.Block, stxos []SpentTxOut) error {
+func (s *utxoCache) rollBackBlock(block *mvcutil.Block, stxos []SpentTxOut) error {
 	return disconnectTransactions(s, block, stxos)
 }
 
@@ -604,7 +604,7 @@ func (s *utxoCache) rollBackBlock(block *bsvutil.Block, stxos []SpentTxOut) erro
 // the state is invalid.
 //
 // This method should be called with the state lock held.
-func (s *utxoCache) rollForwardBlock(block *bsvutil.Block) error {
+func (s *utxoCache) rollForwardBlock(block *mvcutil.Block) error {
 	// We don't need the collect stxos and we allow overwriting existing entries.
 	return connectTransactions(s, block, nil, true)
 }

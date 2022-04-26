@@ -8,11 +8,11 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/metasv/bsvutil"
 	"github.com/metasv/mvcd/blockchain"
 	"github.com/metasv/mvcd/chaincfg/chainhash"
 	"github.com/metasv/mvcd/database"
 	"github.com/metasv/mvcd/wire"
+	"github.com/metasv/mvcutil"
 )
 
 const (
@@ -224,7 +224,7 @@ func dbFetchTxIndexEntry(dbTx database.Tx, txHash *chainhash.Hash) (*database.Bl
 
 // dbAddTxIndexEntries uses an existing database transaction to add a
 // transaction index entry for every transaction in the passed block.
-func dbAddTxIndexEntries(dbTx database.Tx, block *bsvutil.Block, blockID uint32) error {
+func dbAddTxIndexEntries(dbTx database.Tx, block *mvcutil.Block, blockID uint32) error {
 	// The offset and length of the transactions within the serialized
 	// block.
 	txLocs, err := block.TxLoc()
@@ -268,7 +268,7 @@ func dbRemoveTxIndexEntry(dbTx database.Tx, txHash *chainhash.Hash) error {
 
 // dbRemoveTxIndexEntries uses an existing database transaction to remove the
 // latest transaction entry for every transaction in the passed block.
-func dbRemoveTxIndexEntries(dbTx database.Tx, block *bsvutil.Block) error {
+func dbRemoveTxIndexEntries(dbTx database.Tx, block *mvcutil.Block) error {
 	for _, tx := range block.Transactions() {
 		err := dbRemoveTxIndexEntry(dbTx, tx.Hash())
 		if err != nil {
@@ -388,7 +388,7 @@ func (idx *TxIndex) Create(dbTx database.Tx) error {
 // for every transaction in the passed block.
 //
 // This is part of the Indexer interface.
-func (idx *TxIndex) ConnectBlock(dbTx database.Tx, block *bsvutil.Block,
+func (idx *TxIndex) ConnectBlock(dbTx database.Tx, block *mvcutil.Block,
 	stxos []blockchain.SpentTxOut) error {
 
 	// Increment the internal block ID to use for the block being connected
@@ -413,7 +413,7 @@ func (idx *TxIndex) ConnectBlock(dbTx database.Tx, block *bsvutil.Block,
 // hash-to-transaction mapping for every transaction in the block.
 //
 // This is part of the Indexer interface.
-func (idx *TxIndex) DisconnectBlock(dbTx database.Tx, block *bsvutil.Block,
+func (idx *TxIndex) DisconnectBlock(dbTx database.Tx, block *mvcutil.Block,
 	stxos []blockchain.SpentTxOut) error {
 
 	// Remove all of the transactions in the block from the index.

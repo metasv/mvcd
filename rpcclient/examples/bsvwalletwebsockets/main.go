@@ -11,8 +11,8 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/metasv/bsvutil"
 	"github.com/metasv/mvcd/rpcclient"
+	"github.com/metasv/mvcutil"
 )
 
 func main() {
@@ -21,14 +21,14 @@ func main() {
 	// for notifications.  See the documentation of the rpcclient
 	// NotificationHandlers type for more details about each handler.
 	ntfnHandlers := rpcclient.NotificationHandlers{
-		OnAccountBalance: func(account string, balance bsvutil.Amount, confirmed bool) {
+		OnAccountBalance: func(account string, balance mvcutil.Amount, confirmed bool) {
 			log.Printf("New balance for account %s: %v", account,
 				balance)
 		},
 	}
 
 	// Connect to local bsvwallet RPC server using websockets.
-	certHomeDir := bsvutil.AppDataDir("bsvwallet", false)
+	certHomeDir := mvcutil.AppDataDir("bsvwallet", false)
 	certs, err := ioutil.ReadFile(filepath.Join(certHomeDir, "rpc.cert"))
 	if err != nil {
 		log.Fatal(err)

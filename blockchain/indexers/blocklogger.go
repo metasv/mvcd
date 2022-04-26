@@ -11,7 +11,7 @@ import (
 	"time"
 
 	"github.com/metasv/bsvlog"
-	"github.com/metasv/bsvutil"
+	"github.com/metasv/mvcutil"
 )
 
 // blockProgressLogger provides periodic logging for other services in order
@@ -42,7 +42,7 @@ func newBlockProgressLogger(progressMessage string, logger bsvlog.Logger) *block
 // LogBlockHeight logs a new block height as an information message to show
 // progress to the user. In order to prevent spam, it limits logging to one
 // message every 10 seconds with duration and totals included.
-func (b *blockProgressLogger) LogBlockHeight(block *bsvutil.Block, bestHeight uint64) {
+func (b *blockProgressLogger) LogBlockHeight(block *mvcutil.Block, bestHeight uint64) {
 	b.Lock()
 	defer b.Unlock()
 

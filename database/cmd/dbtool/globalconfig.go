@@ -10,15 +10,15 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/metasv/bsvutil"
 	"github.com/metasv/mvcd/chaincfg"
 	"github.com/metasv/mvcd/database"
 	_ "github.com/metasv/mvcd/database/ffldb"
 	"github.com/metasv/mvcd/wire"
+	"github.com/metasv/mvcutil"
 )
 
 var (
-	bsvdHomeDir     = bsvutil.AppDataDir("bsvd", false)
+	bsvdHomeDir     = mvcutil.AppDataDir("bsvd", false)
 	knownDbTypes    = database.SupportedDrivers()
 	activeNetParams = &chaincfg.MainNetParams
 

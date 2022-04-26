@@ -22,7 +22,6 @@ import (
 	"time"
 
 	"github.com/btcsuite/go-socks/socks"
-	"github.com/metasv/bsvutil"
 	"github.com/metasv/mvcd/chaincfg"
 	"github.com/metasv/mvcd/chaincfg/chainhash"
 	"github.com/metasv/mvcd/connmgr"
@@ -31,6 +30,7 @@ import (
 	"github.com/metasv/mvcd/mempool"
 	"github.com/metasv/mvcd/peer"
 	"github.com/metasv/mvcd/version"
+	"github.com/metasv/mvcutil"
 
 	flags "github.com/jessevdk/go-flags"
 )
@@ -70,7 +70,7 @@ const (
 )
 
 var (
-	defaultHomeDir     = bsvutil.AppDataDir("bsvd", false)
+	defaultHomeDir     = mvcutil.AppDataDir("bsvd", false)
 	defaultConfigFile  = filepath.Join(defaultHomeDir, defaultConfigFilename)
 	defaultDataDir     = filepath.Join(defaultHomeDir, defaultDataDirname)
 	knownDbTypes       = database.SupportedDrivers()
@@ -185,8 +185,8 @@ type config struct {
 	oniondial               func(string, string, time.Duration) (net.Conn, error)
 	dial                    func(string, string, time.Duration) (net.Conn, error)
 	addCheckpoints          []chaincfg.Checkpoint
-	miningAddrs             []bsvutil.Address
-	minRelayTxFee           bsvutil.Amount
+	miningAddrs             []mvcutil.Address
+	minRelayTxFee           mvcutil.Amount
 	whitelists              []*net.IPNet
 }
 
@@ -792,7 +792,7 @@ func loadConfig() (*config, []string, error) {
 	}
 
 	// Validate the the minrelaytxfee.
-	cfg.minRelayTxFee, err = bsvutil.NewAmount(cfg.MinRelayTxFee)
+	cfg.minRelayTxFee, err = mvcutil.NewAmount(cfg.MinRelayTxFee)
 	if err != nil {
 		str := "%s: invalid minrelaytxfee: %v"
 		err := fmt.Errorf(str, funcName, err)
@@ -879,9 +879,9 @@ func loadConfig() (*config, []string, error) {
 	}
 
 	// Check mining addresses are valid and saved parsed versions.
-	cfg.miningAddrs = make([]bsvutil.Address, 0, len(cfg.MiningAddrs))
+	cfg.miningAddrs = make([]mvcutil.Address, 0, len(cfg.MiningAddrs))
 	for _, strAddr := range cfg.MiningAddrs {
-		addr, err := bsvutil.DecodeAddress(strAddr, activeNetParams.Params)
+		addr, err := mvcutil.DecodeAddress(strAddr, activeNetParams.Params)
 		if err != nil {
 			str := "%s: mining address '%s' failed to decode: %v"
 			err := fmt.Errorf(str, funcName, strAddr, err)

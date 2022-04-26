@@ -8,24 +8,24 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"github.com/metasv/bsvutil"
 	"github.com/metasv/mvcd/bsvec"
 	"github.com/metasv/mvcd/chaincfg"
 	"github.com/metasv/mvcd/chaincfg/chainhash"
 	"github.com/metasv/mvcd/txscript"
 	"github.com/metasv/mvcd/wire"
+	"github.com/metasv/mvcutil"
 )
 
 // This example demonstrates creating a script which pays to a bitcoin address.
 // It also prints the created script hex and uses the DisasmString function to
 // display the disassembled script.
 func ExamplePayToAddrScript() {
-	// Parse the address to send the coins to into a bsvutil.Address
+	// Parse the address to send the coins to into a mvcutil.Address
 	// which is useful to ensure the accuracy of the address and determine
 	// the address type.  It is also required for the upcoming call to
 	// PayToAddrScript.
 	addressStr := "bitcoincash:qqfgqp8l9l90zwetj84k2jcac2m8falvvydrpuu45u"
-	address, err := bsvutil.DecodeAddress(addressStr, &chaincfg.MainNetParams)
+	address, err := mvcutil.DecodeAddress(addressStr, &chaincfg.MainNetParams)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -90,8 +90,8 @@ func ExampleSignTxOutput() {
 		return
 	}
 	privKey, pubKey := bsvec.PrivKeyFromBytes(bsvec.S256(), privKeyBytes)
-	pubKeyHash := bsvutil.Hash160(pubKey.SerializeCompressed())
-	addr, err := bsvutil.NewAddressPubKeyHash(pubKeyHash,
+	pubKeyHash := mvcutil.Hash160(pubKey.SerializeCompressed())
+	addr, err := mvcutil.NewAddressPubKeyHash(pubKeyHash,
 		&chaincfg.MainNetParams)
 	if err != nil {
 		fmt.Println(err)
@@ -130,7 +130,7 @@ func ExampleSignTxOutput() {
 	redeemTx.AddTxOut(txOut)
 
 	// Sign the redeeming transaction.
-	lookupKey := func(a bsvutil.Address) (*bsvec.PrivateKey, bool, error) {
+	lookupKey := func(a mvcutil.Address) (*bsvec.PrivateKey, bool, error) {
 		// Ordinarily this function would involve looking up the private
 		// key for the provided address, but since the only thing being
 		// signed in this example uses the address associated with the

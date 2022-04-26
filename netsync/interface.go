@@ -5,13 +5,13 @@
 package netsync
 
 import (
-	"github.com/metasv/bsvutil"
 	"github.com/metasv/mvcd/blockchain"
 	"github.com/metasv/mvcd/chaincfg"
 	"github.com/metasv/mvcd/chaincfg/chainhash"
 	"github.com/metasv/mvcd/mempool"
 	"github.com/metasv/mvcd/peer"
 	"github.com/metasv/mvcd/wire"
+	"github.com/metasv/mvcutil"
 )
 
 // PeerNotifier exposes methods to notify peers of status changes to
@@ -24,7 +24,7 @@ type PeerNotifier interface {
 
 	RelayInventory(invVect *wire.InvVect, data interface{})
 
-	TransactionConfirmed(tx *bsvutil.Tx)
+	TransactionConfirmed(tx *mvcutil.Tx)
 }
 
 // Config is a configuration struct used to initialize a new SyncManager.

@@ -16,9 +16,9 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/metasv/bsvutil"
 	"github.com/metasv/mvcd/chaincfg/chainhash"
 	"github.com/metasv/mvcd/mining"
+	"github.com/metasv/mvcutil"
 )
 
 // TODO incorporate Alex Morcos' modifications to Gavin's initial model
@@ -75,18 +75,18 @@ func (rate SatoshiPerByte) ToBsvPerKb() BsvPerKilobyte {
 
 // Fee returns the fee for a transaction of a given size for
 // the given fee rate.
-func (rate SatoshiPerByte) Fee(size uint32) bsvutil.Amount {
+func (rate SatoshiPerByte) Fee(size uint32) mvcutil.Amount {
 	// If our rate is the error value, return that.
 	if rate == SatoshiPerByte(-1) {
-		return bsvutil.Amount(-1)
+		return mvcutil.Amount(-1)
 	}
 
-	return bsvutil.Amount(float64(rate) * float64(size))
+	return mvcutil.Amount(float64(rate) * float64(size))
 }
 
 // NewSatoshiPerByte creates a SatoshiPerByte from an Amount and a
 // size in bytes.
-func NewSatoshiPerByte(fee bsvutil.Amount, size uint32) SatoshiPerByte {
+func NewSatoshiPerByte(fee mvcutil.Amount, size uint32) SatoshiPerByte {
 	return SatoshiPerByte(float64(fee) / float64(size))
 }
 
@@ -212,7 +212,7 @@ func (ef *FeeEstimator) ObserveTransaction(t *TxDesc) {
 
 		ef.observed[hash] = &observedTransaction{
 			hash:     hash,
-			feeRate:  NewSatoshiPerByte(bsvutil.Amount(t.Fee), size),
+			feeRate:  NewSatoshiPerByte(mvcutil.Amount(t.Fee), size),
 			observed: t.Height,
 			mined:    mining.UnminedHeight,
 		}
@@ -220,7 +220,7 @@ func (ef *FeeEstimator) ObserveTransaction(t *TxDesc) {
 }
 
 // RegisterBlock informs the fee estimator of a new block to take into account.
-func (ef *FeeEstimator) RegisterBlock(block *bsvutil.Block) error {
+func (ef *FeeEstimator) RegisterBlock(block *mvcutil.Block) error {
 	ef.mtx.Lock()
 	defer ef.mtx.Unlock()
 
@@ -238,7 +238,7 @@ func (ef *FeeEstimator) RegisterBlock(block *bsvutil.Block) error {
 	ef.numBlocksRegistered++
 
 	// Randomly order txs in block.
-	transactions := make(map[*bsvutil.Tx]struct{})
+	transactions := make(map[*mvcutil.Tx]struct{})
 	for _, t := range block.Transactions() {
 		transactions[t] = struct{}{}
 	}

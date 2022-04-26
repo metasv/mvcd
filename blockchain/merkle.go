@@ -7,8 +7,8 @@ package blockchain
 import (
 	"math"
 
-	"github.com/metasv/bsvutil"
 	"github.com/metasv/mvcd/chaincfg/chainhash"
+	"github.com/metasv/mvcutil"
 )
 
 // nextPowerOfTwo returns the next highest power of two from a given number if
@@ -71,7 +71,7 @@ func HashMerkleBranches(left *chainhash.Hash, right *chainhash.Hash) *chainhash.
 // using witness transaction id's rather than regular transaction id's. This
 // also presents an additional case wherein the wtxid of the coinbase transaction
 // is the zeroHash.
-func BuildMerkleTreeStore(transactions []*bsvutil.Tx) []*chainhash.Hash {
+func BuildMerkleTreeStore(transactions []*mvcutil.Tx) []*chainhash.Hash {
 	// Calculate how many entries are required to hold the binary merkle
 	// tree as a linear array and create an array of that size.
 	nextPoT := nextPowerOfTwo(len(transactions))

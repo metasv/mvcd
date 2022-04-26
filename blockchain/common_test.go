@@ -14,13 +14,13 @@ import (
 	"strings"
 	"time"
 
-	"github.com/metasv/bsvutil"
 	"github.com/metasv/mvcd/chaincfg"
 	"github.com/metasv/mvcd/chaincfg/chainhash"
 	"github.com/metasv/mvcd/database"
 	_ "github.com/metasv/mvcd/database/ffldb"
 	"github.com/metasv/mvcd/txscript"
 	"github.com/metasv/mvcd/wire"
+	"github.com/metasv/mvcutil"
 )
 
 const (
@@ -62,8 +62,8 @@ func isSupportedDbType(dbType string) bool {
 
 // loadBlocks reads files containing bitcoin block data (gzipped but otherwise
 // in the format bitcoind writes) from disk and returns them as an array of
-// bsvutil.Block.  This is largely borrowed from the test code in bsvdb.
-func loadBlocks(filename string) (blocks []*bsvutil.Block, err error) {
+// mvcutil.Block.  This is largely borrowed from the test code in bsvdb.
+func loadBlocks(filename string) (blocks []*mvcutil.Block, err error) {
 	filename = filepath.Join("testdata/", filename)
 
 	var network = blockDataNet
@@ -82,7 +82,7 @@ func loadBlocks(filename string) (blocks []*bsvutil.Block, err error) {
 	}
 	defer fi.Close()
 
-	var block *bsvutil.Block
+	var block *mvcutil.Block
 
 	err = nil
 	for height := int64(1); err == nil; height++ {
@@ -106,7 +106,7 @@ func loadBlocks(filename string) (blocks []*bsvutil.Block, err error) {
 		// read block
 		dr.Read(rbytes)
 
-		block, err = bsvutil.NewBlockFromBytes(rbytes)
+		block, err = mvcutil.NewBlockFromBytes(rbytes)
 		if err != nil {
 			return
 		}

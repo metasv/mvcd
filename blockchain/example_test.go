@@ -10,11 +10,11 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/metasv/bsvutil"
 	"github.com/metasv/mvcd/blockchain"
 	"github.com/metasv/mvcd/chaincfg"
 	"github.com/metasv/mvcd/database"
 	_ "github.com/metasv/mvcd/database/ffldb"
+	"github.com/metasv/mvcutil"
 )
 
 // This example demonstrates how to create a new chain instance and use
@@ -59,7 +59,7 @@ func ExampleBlockChain_ProcessBlock() {
 	// Process a block.  For this example, we are going to intentionally
 	// cause an error by trying to process the genesis block which already
 	// exists.
-	genesisBlock := bsvutil.NewBlock(chaincfg.MainNetParams.GenesisBlock)
+	genesisBlock := mvcutil.NewBlock(chaincfg.MainNetParams.GenesisBlock)
 	isMainChain, isOrphan, err := chain.ProcessBlock(genesisBlock,
 		blockchain.BFNone)
 	if err != nil {

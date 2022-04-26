@@ -11,12 +11,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/metasv/bsvutil"
 	"github.com/metasv/mvcd/blockchain"
 	"github.com/metasv/mvcd/blockchain/indexers"
 	"github.com/metasv/mvcd/chaincfg/chainhash"
 	"github.com/metasv/mvcd/database"
 	"github.com/metasv/mvcd/wire"
+	"github.com/metasv/mvcutil"
 )
 
 var zeroHash = chainhash.Hash{}
@@ -94,7 +94,7 @@ func (bi *blockImporter) readBlock() ([]byte, error) {
 // with any potential errors.
 func (bi *blockImporter) processBlock(serializedBlock []byte) (bool, error) {
 	// Deserialize the block which includes checks for malformed blocks.
-	block, err := bsvutil.NewBlockFromBytes(serializedBlock)
+	block, err := mvcutil.NewBlockFromBytes(serializedBlock)
 	if err != nil {
 		return false, err
 	}

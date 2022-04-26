@@ -22,8 +22,6 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/metasv/bsvutil"
-	"github.com/metasv/bsvutil/bloom"
 	"github.com/metasv/mvcd/addrmgr"
 	"github.com/metasv/mvcd/blockchain"
 	"github.com/metasv/mvcd/blockchain/indexers"
@@ -39,6 +37,8 @@ import (
 	"github.com/metasv/mvcd/txscript"
 	"github.com/metasv/mvcd/version"
 	"github.com/metasv/mvcd/wire"
+	"github.com/metasv/mvcutil"
+	"github.com/metasv/mvcutil/bloom"
 )
 
 const (
@@ -557,9 +557,9 @@ func (sp *serverPeer) OnTx(_ *peer.Peer, msg *wire.MsgTx) {
 	}
 
 	// Add the transaction to the known inventory for the peer.
-	// Convert the raw MsgTx to a bsvutil.Tx which provides some convenience
+	// Convert the raw MsgTx to a mvcutil.Tx which provides some convenience
 	// methods and things such as hash caching.
-	tx := bsvutil.NewTx(msg)
+	tx := mvcutil.NewTx(msg)
 	iv := wire.NewInvVect(wire.InvTypeTx, tx.Hash())
 	sp.AddKnownInventory(iv)
 
@@ -575,9 +575,9 @@ func (sp *serverPeer) OnTx(_ *peer.Peer, msg *wire.MsgTx) {
 // OnBlock is invoked when a peer receives a block bitcoin message.  It
 // blocks until the bitcoin block has been fully processed.
 func (sp *serverPeer) OnBlock(_ *peer.Peer, msg *wire.MsgBlock, buf []byte) {
-	// Convert the raw MsgBlock to a bsvutil.Block which provides some
+	// Convert the raw MsgBlock to a mvcutil.Block which provides some
 	// convenience methods and things such as hash caching.
-	block := bsvutil.NewBlockFromBlockAndBytes(msg, buf)
+	block := mvcutil.NewBlockFromBlockAndBytes(msg, buf)
 
 	// Add the block to the known inventory for the peer.
 	iv := wire.NewInvVect(wire.InvTypeBlock, block.Hash())
@@ -1160,9 +1160,9 @@ func (sp *serverPeer) enforceNodeBloomFlag(cmd string) bool {
 // disconnected if an invalid fee filter value is provided.
 func (sp *serverPeer) OnFeeFilter(_ *peer.Peer, msg *wire.MsgFeeFilter) {
 	// Check that the passed minimum fee is a valid amount.
-	if msg.MinFee < 0 || msg.MinFee > bsvutil.MaxSatoshi {
+	if msg.MinFee < 0 || msg.MinFee > mvcutil.MaxSatoshi {
 		peerLog.Debugf("Peer %v sent an invalid feefilter '%v' -- "+
-			"disconnecting", sp, bsvutil.Amount(msg.MinFee))
+			"disconnecting", sp, mvcutil.Amount(msg.MinFee))
 		sp.Disconnect()
 		return
 	}
@@ -1185,7 +1185,7 @@ func (sp *serverPeer) OnProtoconf(_ *peer.Peer, msg *wire.MsgProtoconf) {
 	}
 
 	peerLog.Debugf("Peer %v sent an invalid protoconf '%v' -- "+
-		"disconnecting", sp, bsvutil.Amount(msg.NumberOfFields))
+		"disconnecting", sp, mvcutil.Amount(msg.NumberOfFields))
 	sp.Disconnect()
 }
 
@@ -1436,7 +1436,7 @@ func (s *server) AnnounceNewTransactions(txns []*mempool.TxDesc) {
 
 // Transaction has one confirmation on the main chain. Now we can mark it as no
 // longer needing rebroadcasting.
-func (s *server) TransactionConfirmed(tx *bsvutil.Tx) {
+func (s *server) TransactionConfirmed(tx *mvcutil.Tx) {
 	// Rebroadcasting is only necessary when the RPC server is active.
 	if s.rpcServer == nil {
 		return
@@ -2764,7 +2764,7 @@ func newServer(listenAddrs []string, db database.DB, chainParams *chaincfg.Param
 		FetchUtxoView:  s.chain.FetchUtxoView,
 		BestHeight:     func() int32 { return s.chain.BestSnapshot().Height },
 		MedianTimePast: func() time.Time { return s.chain.BestSnapshot().MedianTime },
-		CalcSequenceLock: func(tx *bsvutil.Tx, view *blockchain.UtxoViewpoint) (*blockchain.SequenceLock, error) {
+		CalcSequenceLock: func(tx *mvcutil.Tx, view *blockchain.UtxoViewpoint) (*blockchain.SequenceLock, error) {
 			return s.chain.CalcSequenceLock(tx, view, true)
 		},
 		IsDeploymentActive: s.chain.IsDeploymentActive,

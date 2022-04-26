@@ -11,13 +11,13 @@ import (
 	"net"
 	"time"
 
-	"github.com/metasv/bsvutil"
 	"github.com/metasv/mvcd/chaincfg"
 	"github.com/metasv/mvcd/chaincfg/chainhash"
 	"github.com/metasv/mvcd/mempool"
 	"github.com/metasv/mvcd/peer"
 	"github.com/metasv/mvcd/txscript"
 	"github.com/metasv/mvcd/wire"
+	"github.com/metasv/mvcutil"
 )
 
 // fixedExcessiveBlockSize should not be the default -we want to ensure it will work in all cases
@@ -181,7 +181,7 @@ type relayInventoryCall struct {
 }
 
 type transactionConfirmedCall struct {
-	tx *bsvutil.Tx
+	tx *mvcutil.Tx
 }
 
 func (mock *MockPeerNotifier) AnnounceNewTransactions(newTxs []*mempool.TxDesc) {
@@ -205,7 +205,7 @@ func (mock *MockPeerNotifier) RelayInventory(invVect *wire.InvVect, data interfa
 	}
 }
 
-func (mock *MockPeerNotifier) TransactionConfirmed(tx *bsvutil.Tx) {
+func (mock *MockPeerNotifier) TransactionConfirmed(tx *mvcutil.Tx) {
 	mock.transactionConfirmedChan <- &transactionConfirmedCall{tx: tx}
 }
 
@@ -223,13 +223,13 @@ func NewMockPeerNotifier() *MockPeerNotifier {
 // GenerateAnyoneCanSpendAddress generates a P2SH address with an OP_TRUE in the
 // redeem script so it can be trivially spent. Returns the scriptSig as well for
 // convenience.
-func GenerateAnyoneCanSpendAddress(chainParams *chaincfg.Params) (bsvutil.Address, []byte, error) {
+func GenerateAnyoneCanSpendAddress(chainParams *chaincfg.Params) (mvcutil.Address, []byte, error) {
 	redeemScript := []byte{txscript.OP_TRUE}
 	scriptSig, err := txscript.NewScriptBuilder().AddData(redeemScript).Script()
 	if err != nil {
 		return nil, nil, err
 	}
-	address, err := bsvutil.NewAddressScriptHash(redeemScript, chainParams)
+	address, err := mvcutil.NewAddressScriptHash(redeemScript, chainParams)
 	if err != nil {
 		return nil, nil, err
 	}

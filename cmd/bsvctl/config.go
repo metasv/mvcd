@@ -14,9 +14,9 @@ import (
 	"strings"
 
 	flags "github.com/jessevdk/go-flags"
-	"github.com/metasv/bsvutil"
 	"github.com/metasv/mvcd/btcjson"
 	"github.com/metasv/mvcd/version"
+	"github.com/metasv/mvcutil"
 )
 
 const (
@@ -27,9 +27,9 @@ const (
 )
 
 var (
-	bsvdHomeDir           = bsvutil.AppDataDir("bsvd", false)
-	bsvctlHomeDir         = bsvutil.AppDataDir("bsvctl", false)
-	bsvwalletHomeDir      = bsvutil.AppDataDir("bsvwallet", false)
+	bsvdHomeDir           = mvcutil.AppDataDir("bsvd", false)
+	bsvctlHomeDir         = mvcutil.AppDataDir("bsvctl", false)
+	bsvwalletHomeDir      = mvcutil.AppDataDir("bsvwallet", false)
 	defaultConfigFile     = filepath.Join(bsvctlHomeDir, "bsvctl.conf")
 	defaultRPCServer      = "localhost"
 	defaultRPCCertFile    = filepath.Join(bsvdHomeDir, "rpc.cert")

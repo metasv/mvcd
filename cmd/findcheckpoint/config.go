@@ -10,11 +10,11 @@ import (
 	"path/filepath"
 
 	flags "github.com/jessevdk/go-flags"
-	"github.com/metasv/bsvutil"
 	"github.com/metasv/mvcd/chaincfg"
 	"github.com/metasv/mvcd/database"
 	_ "github.com/metasv/mvcd/database/ffldb"
 	"github.com/metasv/mvcd/wire"
+	"github.com/metasv/mvcutil"
 )
 
 const (
@@ -25,7 +25,7 @@ const (
 )
 
 var (
-	bsvdHomeDir     = bsvutil.AppDataDir("bsvd", false)
+	bsvdHomeDir     = mvcutil.AppDataDir("bsvd", false)
 	defaultDataDir  = filepath.Join(bsvdHomeDir, "data")
 	knownDbTypes    = database.SupportedDrivers()
 	activeNetParams = &chaincfg.MainNetParams

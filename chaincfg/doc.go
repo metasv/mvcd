@@ -25,7 +25,7 @@
 //          "fmt"
 //          "log"
 //
-//          "github.com/metasv/bsvutil"
+//          "github.com/metasv/mvcutil"
 //          "github.com/metasv/mvcd/chaincfg"
 //  )
 //
@@ -46,7 +46,7 @@
 //
 //          // Create and print new payment address, specific to the active network.
 //          pubKeyHash := make([]byte, 20)
-//          addr, err := bsvutil.NewAddressPubKeyHash(pubKeyHash, chainParams)
+//          addr, err := mvcutil.NewAddressPubKeyHash(pubKeyHash, chainParams)
 //          if err != nil {
 //                  log.Fatal(err)
 //          }

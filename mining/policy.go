@@ -5,9 +5,9 @@
 package mining
 
 import (
-	"github.com/metasv/bsvutil"
 	"github.com/metasv/mvcd/blockchain"
 	"github.com/metasv/mvcd/wire"
+	"github.com/metasv/mvcutil"
 )
 
 const (
@@ -36,7 +36,7 @@ type Policy struct {
 	// TxMinFreeFee is the minimum fee in Satoshi/1000 bytes that is
 	// required for a transaction to be treated as free for mining purposes
 	// (block template generation).
-	TxMinFreeFee bsvutil.Amount
+	TxMinFreeFee mvcutil.Amount
 }
 
 // minInt is a helper function to return the minimum of two ints.  This avoids

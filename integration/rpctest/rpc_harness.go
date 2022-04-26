@@ -15,11 +15,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/metasv/bsvutil"
 	"github.com/metasv/mvcd/chaincfg"
 	"github.com/metasv/mvcd/chaincfg/chainhash"
 	"github.com/metasv/mvcd/rpcclient"
 	"github.com/metasv/mvcd/wire"
+	"github.com/metasv/mvcutil"
 )
 
 const (
@@ -171,7 +171,7 @@ func New(activeNet *chaincfg.Params, handlers *rpcclient.NotificationHandlers,
 	// callback.
 	if handlers.OnFilteredBlockConnected != nil {
 		obc := handlers.OnFilteredBlockConnected
-		handlers.OnFilteredBlockConnected = func(height int32, header *wire.BlockHeader, filteredTxns []*bsvutil.Tx) {
+		handlers.OnFilteredBlockConnected = func(height int32, header *wire.BlockHeader, filteredTxns []*mvcutil.Tx) {
 			wallet.IngestBlock(height, header, filteredTxns)
 			obc(height, header, filteredTxns)
 		}
@@ -227,7 +227,7 @@ func (h *Harness) SetUp(createTestChain bool, numMatureOutputs uint32) error {
 
 	// Filter transactions that pay to the coinbase associated with the
 	// wallet.
-	filterAddrs := []bsvutil.Address{h.wallet.coinbaseAddr}
+	filterAddrs := []mvcutil.Address{h.wallet.coinbaseAddr}
 	if err := h.Node.LoadTxFilter(true, filterAddrs, nil); err != nil {
 		return err
 	}
@@ -338,7 +338,7 @@ func (h *Harness) connectRPCClient() error {
 // wallet.
 //
 // This function is safe for concurrent access.
-func (h *Harness) NewAddress() (bsvutil.Address, error) {
+func (h *Harness) NewAddress() (mvcutil.Address, error) {
 	return h.wallet.NewAddress()
 }
 
@@ -346,7 +346,7 @@ func (h *Harness) NewAddress() (bsvutil.Address, error) {
 // wallet.
 //
 // This function is safe for concurrent access.
-func (h *Harness) ConfirmedBalance() bsvutil.Amount {
+func (h *Harness) ConfirmedBalance() mvcutil.Amount {
 	return h.wallet.ConfirmedBalance()
 }
 
@@ -356,7 +356,7 @@ func (h *Harness) ConfirmedBalance() bsvutil.Amount {
 //
 // This function is safe for concurrent access.
 func (h *Harness) SendOutputs(targetOutputs []*wire.TxOut,
-	feeRate bsvutil.Amount) (*chainhash.Hash, error) {
+	feeRate mvcutil.Amount) (*chainhash.Hash, error) {
 
 	return h.wallet.SendOutputs(targetOutputs, feeRate)
 }
@@ -367,7 +367,7 @@ func (h *Harness) SendOutputs(targetOutputs []*wire.TxOut,
 //
 // This function is safe for concurrent access.
 func (h *Harness) SendOutputsWithoutChange(targetOutputs []*wire.TxOut,
-	feeRate bsvutil.Amount) (*chainhash.Hash, error) {
+	feeRate mvcutil.Amount) (*chainhash.Hash, error) {
 
 	return h.wallet.SendOutputsWithoutChange(targetOutputs, feeRate)
 }
@@ -384,7 +384,7 @@ func (h *Harness) SendOutputsWithoutChange(targetOutputs []*wire.TxOut,
 //
 // This function is safe for concurrent access.
 func (h *Harness) CreateTransaction(targetOutputs []*wire.TxOut,
-	feeRate bsvutil.Amount, change bool) (*wire.MsgTx, error) {
+	feeRate mvcutil.Amount, change bool) (*wire.MsgTx, error) {
 
 	return h.wallet.CreateTransaction(targetOutputs, feeRate, change)
 }
@@ -421,8 +421,8 @@ func (h *Harness) P2PAddress() string {
 // blockTime parameter if one doesn't wish to set a custom time.
 //
 // This function is safe for concurrent access.
-func (h *Harness) GenerateAndSubmitBlock(txns []*bsvutil.Tx, blockVersion int32,
-	blockTime time.Time) (*bsvutil.Block, error) {
+func (h *Harness) GenerateAndSubmitBlock(txns []*mvcutil.Tx, blockVersion int32,
+	blockTime time.Time) (*mvcutil.Block, error) {
 	return h.GenerateAndSubmitBlockWithCustomCoinbaseOutputs(txns,
 		blockVersion, blockTime, []wire.TxOut{})
 }
@@ -442,8 +442,8 @@ func (h *Harness) GenerateAndSubmitBlock(txns []*bsvutil.Tx, blockVersion int32,
 //
 // This function is safe for concurrent access.
 func (h *Harness) GenerateAndSubmitBlockWithCustomCoinbaseOutputs(
-	txns []*bsvutil.Tx, blockVersion int32, blockTime time.Time,
-	mineTo []wire.TxOut) (*bsvutil.Block, error) {
+	txns []*mvcutil.Tx, blockVersion int32, blockTime time.Time,
+	mineTo []wire.TxOut) (*mvcutil.Block, error) {
 
 	h.Lock()
 	defer h.Unlock()
@@ -460,7 +460,7 @@ func (h *Harness) GenerateAndSubmitBlockWithCustomCoinbaseOutputs(
 	if err != nil {
 		return nil, err
 	}
-	prevBlock := bsvutil.NewBlock(mBlock)
+	prevBlock := mvcutil.NewBlock(mBlock)
 	prevBlock.SetHeight(prevBlockHeight)
 
 	// Create a new block including the specified transactions

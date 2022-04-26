@@ -12,10 +12,10 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/metasv/bsvutil"
 	"github.com/metasv/mvcd/chaincfg"
 	"github.com/metasv/mvcd/database"
 	"github.com/metasv/mvcd/database/ffldb"
+	"github.com/metasv/mvcutil"
 )
 
 // dbType is the database type name for this driver.
@@ -171,7 +171,7 @@ func TestPersistence(t *testing.T) {
 		"b1key2": "foo2",
 		"b1key3": "foo3",
 	}
-	genesisBlock := bsvutil.NewBlock(chaincfg.MainNetParams.GenesisBlock)
+	genesisBlock := mvcutil.NewBlock(chaincfg.MainNetParams.GenesisBlock)
 	genesisHash := chaincfg.MainNetParams.GenesisHash
 	err = db.Update(func(tx database.Tx) error {
 		metadataBucket := tx.Metadata()

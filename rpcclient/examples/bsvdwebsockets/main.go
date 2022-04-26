@@ -10,9 +10,9 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/metasv/bsvutil"
 	"github.com/metasv/mvcd/rpcclient"
 	"github.com/metasv/mvcd/wire"
+	"github.com/metasv/mvcutil"
 )
 
 func main() {
@@ -21,7 +21,7 @@ func main() {
 	// for notifications.  See the documentation of the rpcclient
 	// NotificationHandlers type for more details about each handler.
 	ntfnHandlers := rpcclient.NotificationHandlers{
-		OnFilteredBlockConnected: func(height int32, header *wire.BlockHeader, txns []*bsvutil.Tx) {
+		OnFilteredBlockConnected: func(height int32, header *wire.BlockHeader, txns []*mvcutil.Tx) {
 			log.Printf("Block connected: %v (%d) %v",
 				header.BlockHash(), height, header.Timestamp)
 		},
@@ -32,7 +32,7 @@ func main() {
 	}
 
 	// Connect to local bsvd RPC server using websockets.
-	bsvdHomeDir := bsvutil.AppDataDir("bsvd", false)
+	bsvdHomeDir := mvcutil.AppDataDir("bsvd", false)
 	certs, err := ioutil.ReadFile(filepath.Join(bsvdHomeDir, "rpc.cert"))
 	if err != nil {
 		log.Fatal(err)

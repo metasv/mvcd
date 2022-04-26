@@ -11,7 +11,6 @@ import (
 	"testing"
 	"time"
 
-	"github.com/metasv/bsvutil"
 	"github.com/metasv/mvcd/blockchain"
 	"github.com/metasv/mvcd/chaincfg"
 	"github.com/metasv/mvcd/chaincfg/chainhash"
@@ -23,6 +22,7 @@ import (
 	"github.com/metasv/mvcd/peer"
 	"github.com/metasv/mvcd/txscript"
 	"github.com/metasv/mvcd/wire"
+	"github.com/metasv/mvcutil"
 )
 
 const (
@@ -93,7 +93,7 @@ func (ctx *testContext) Setup(config *testConfig) error {
 		FetchUtxoView:  chain.FetchUtxoView,
 		BestHeight:     func() int32 { return chain.BestSnapshot().Height },
 		MedianTimePast: func() time.Time { return chain.BestSnapshot().MedianTime },
-		CalcSequenceLock: func(tx *bsvutil.Tx, view *blockchain.UtxoViewpoint) (*blockchain.SequenceLock, error) {
+		CalcSequenceLock: func(tx *mvcutil.Tx, view *blockchain.UtxoViewpoint) (*blockchain.SequenceLock, error) {
 			return chain.CalcSequenceLock(tx, view, true)
 		},
 		IsDeploymentActive: chain.IsDeploymentActive,
@@ -316,10 +316,10 @@ func TestBlockchainSync(t *testing.T) {
 		t.Fatalf("Error constructing P2SH address: %v", err)
 	}
 
-	genesisBlock := bsvutil.NewBlock(chainParams.GenesisBlock)
+	genesisBlock := mvcutil.NewBlock(chainParams.GenesisBlock)
 
 	// Generate chain of 3 blocks
-	blocks := make([]*bsvutil.Block, 0, 3)
+	blocks := make([]*mvcutil.Block, 0, 3)
 	blockVersion := int32(2)
 	prevBlock := genesisBlock
 	for i := 0; i < 3; i++ {
@@ -392,7 +392,7 @@ func TestBlockchainSync(t *testing.T) {
 
 	timestamp := time.Now().Truncate(time.Second)
 	prevBlock = blocks[len(blocks)-1]
-	txns := []*bsvutil.Tx{spendTx}
+	txns := []*mvcutil.Tx{spendTx}
 	block, err := rpctest.CreateBlock(prevBlock, txns, blockVersion,
 		timestamp, address, []wire.TxOut{}, &chainParams)
 	if err != nil {
@@ -558,7 +558,7 @@ func TestMempoolSync(t *testing.T) {
 		t.Fatalf("Error constructing P2SH address: %v", err)
 	}
 
-	genesisBlock := bsvutil.NewBlock(chainParams.GenesisBlock)
+	genesisBlock := mvcutil.NewBlock(chainParams.GenesisBlock)
 
 	// Generate block with spendable coinbase
 	blockVersion := int32(2)
@@ -743,7 +743,7 @@ func newMessageChans() *msgChans {
 	return &instance
 }
 
-func buildBlockInv(blocks ...*bsvutil.Block) *wire.MsgInv {
+func buildBlockInv(blocks ...*mvcutil.Block) *wire.MsgInv {
 	msg := wire.NewMsgInv()
 	for _, block := range blocks {
 		invVect := wire.NewInvVect(wire.InvTypeBlock, block.Hash())
@@ -754,7 +754,7 @@ func buildBlockInv(blocks ...*bsvutil.Block) *wire.MsgInv {
 
 // createSpendingTx constructs a transaction spending from the provided one
 // which sends the entire value of one output to the given address.
-func createSpendingTx(prevTx *bsvutil.Tx, index uint32, scriptSig []byte, address bsvutil.Address) (*bsvutil.Tx, error) {
+func createSpendingTx(prevTx *mvcutil.Tx, index uint32, scriptSig []byte, address mvcutil.Address) (*mvcutil.Tx, error) {
 	scriptPubKey, err := txscript.PayToAddrScript(address)
 	if err != nil {
 		return nil, err
@@ -767,5 +767,5 @@ func createSpendingTx(prevTx *bsvutil.Tx, index uint32, scriptSig []byte, addres
 	spendTx := wire.NewMsgTx(1)
 	spendTx.AddTxIn(wire.NewTxIn(prevOutPoint, scriptSig))
 	spendTx.AddTxOut(wire.NewTxOut(prevOut.Value, scriptPubKey))
-	return bsvutil.NewTx(spendTx), nil
+	return mvcutil.NewTx(spendTx), nil
 }

@@ -9,12 +9,12 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/metasv/bsvutil"
 	"github.com/metasv/mvcd/chaincfg"
 	"github.com/metasv/mvcd/chaincfg/chainhash"
 	"github.com/metasv/mvcd/database"
 	"github.com/metasv/mvcd/txscript"
 	"github.com/metasv/mvcd/wire"
+	"github.com/metasv/mvcutil"
 )
 
 var (
@@ -24,7 +24,7 @@ var (
 
 	// lowFee is a single satoshi and exists to make the test code more
 	// readable.
-	lowFee = bsvutil.Amount(1)
+	lowFee = mvcutil.Amount(1)
 )
 
 // uniqueOpReturnScript returns a standard provably-pruneable OP_RETURN script
@@ -111,7 +111,7 @@ func solveBlock(header *wire.BlockHeader) bool {
 // additional metadata such as the block its in and how much it pays.
 type spendableOut struct {
 	prevOut wire.OutPoint
-	amount  bsvutil.Amount
+	amount  mvcutil.Amount
 }
 
 // makeSpendableOutForTx returns a spendable output for the given transaction
@@ -122,7 +122,7 @@ func makeSpendableOutForTx(tx *wire.MsgTx, txOutIndex uint32) spendableOut {
 			Hash:  tx.TxHash(),
 			Index: txOutIndex,
 		},
-		amount: bsvutil.Amount(tx.TxOut[txOutIndex].Value),
+		amount: mvcutil.Amount(tx.TxOut[txOutIndex].Value),
 	}
 }
 
@@ -131,7 +131,7 @@ func makeSpendableOutForTx(tx *wire.MsgTx, txOutIndex uint32) spendableOut {
 // the new spendable outputs created in the block.
 //
 // Panics on errors.
-func addBlock(chain *BlockChain, prev *bsvutil.Block, spends []*spendableOut) (*bsvutil.Block, []*spendableOut) {
+func addBlock(chain *BlockChain, prev *mvcutil.Block, spends []*spendableOut) (*mvcutil.Block, []*spendableOut) {
 	blockHeight := prev.Height() + 1
 	txns := make([]*wire.MsgTx, 0, 1+len(spends))
 
@@ -191,13 +191,13 @@ func addBlock(chain *BlockChain, prev *bsvutil.Block, spends []*spendableOut) (*
 	}
 
 	// Calculate merkle root.
-	utilTxns := make([]*bsvutil.Tx, 0, len(txns))
+	utilTxns := make([]*mvcutil.Tx, 0, len(txns))
 	for _, tx := range txns {
-		utilTxns = append(utilTxns, bsvutil.NewTx(tx))
+		utilTxns = append(utilTxns, mvcutil.NewTx(tx))
 	}
 	merkles := BuildMerkleTreeStore(utilTxns)
 
-	block := bsvutil.NewBlock(&wire.MsgBlock{
+	block := mvcutil.NewBlock(&wire.MsgBlock{
 		Header: wire.BlockHeader{
 			Version:    1,
 			PrevBlock:  *prev.Hash(),
@@ -302,7 +302,7 @@ func TestUtxoCache_SimpleFlush(t *testing.T) {
 	chain, params, tearDown := utxoCacheTestChain("TestUtxoCache_SimpleFlush")
 	defer tearDown()
 	cache := chain.utxoCache
-	tip := bsvutil.NewBlock(params.GenesisBlock)
+	tip := mvcutil.NewBlock(params.GenesisBlock)
 
 	// The chainSetup init triggered write of consistency status of genesis.
 	assertConsistencyState(t, chain, ucsConsistent, params.GenesisHash)
@@ -354,7 +354,7 @@ func TestUtxoCache_ThresholdPeriodicFlush(t *testing.T) {
 	chain, params, tearDown := utxoCacheTestChain("TestUtxoCache_ThresholdPeriodicFlush")
 	defer tearDown()
 	cache := chain.utxoCache
-	tip := bsvutil.NewBlock(params.GenesisBlock)
+	tip := mvcutil.NewBlock(params.GenesisBlock)
 
 	// Set the limit to the size of 10 empty elements.  This will trigger
 	// flushing when adding 10 non-empty elements.
@@ -394,7 +394,7 @@ func TestUtxoCache_ThresholdPeriodicFlush(t *testing.T) {
 func TestUtxoCache_Reorg(t *testing.T) {
 	chain, params, tearDown := utxoCacheTestChain("TestUtxoCache_Reorg")
 	defer tearDown()
-	tip := bsvutil.NewBlock(params.GenesisBlock)
+	tip := mvcutil.NewBlock(params.GenesisBlock)
 
 	// Create base blocks 1 and 2 that will not be reorged.
 	// Spend the outputs of block 1.

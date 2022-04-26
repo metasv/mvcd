@@ -8,10 +8,10 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/metasv/bsvutil"
 	"github.com/metasv/mvcd/bsvec"
 	"github.com/metasv/mvcd/chaincfg"
 	"github.com/metasv/mvcd/wire"
+	"github.com/metasv/mvcutil"
 )
 
 // RawTxInSignature returns the serialized ECDSA signature for the input idx of
@@ -117,7 +117,7 @@ func p2pkSignatureScript(tx *wire.MsgTx, idx int, amt int64, subScript []byte,
 // legal to not be able to sign any of the outputs, no error is returned.
 
 func signMultiSig(tx *wire.MsgTx, idx int, amt int64, subScript []byte, hashType SigHashType,
-	addresses []bsvutil.Address, nRequired int, kdb KeyDB) ([]byte, bool) {
+	addresses []mvcutil.Address, nRequired int, kdb KeyDB) ([]byte, bool) {
 	// We start with a single OP_FALSE to work around the (now standard)
 	// but in the reference implementation that causes a spurious pop at
 	// the end of OP_CHECKMULTISIG.
@@ -147,7 +147,7 @@ func signMultiSig(tx *wire.MsgTx, idx int, amt int64, subScript []byte, hashType
 
 func sign(chainParams *chaincfg.Params, tx *wire.MsgTx, idx int, amt int64,
 	subScript []byte, hashType SigHashType, kdb KeyDB, sdb ScriptDB) ([]byte,
-	ScriptClass, []bsvutil.Address, int, error) {
+	ScriptClass, []mvcutil.Address, int, error) {
 
 	class, addresses, nrequired, err := ExtractPkScriptAddrs(subScript,
 		chainParams)
@@ -211,7 +211,7 @@ func sign(chainParams *chaincfg.Params, tx *wire.MsgTx, idx int, amt int64,
 // function with addresses, class and nrequired that do not match pkScript is
 // an error and results in undefined behaviour.
 func mergeScripts(chainParams *chaincfg.Params, tx *wire.MsgTx, idx int,
-	amt int64, pkScript []byte, class ScriptClass, addresses []bsvutil.Address, nRequired int,
+	amt int64, pkScript []byte, class ScriptClass, addresses []mvcutil.Address, nRequired int,
 	sigScript, prevScript []byte) ([]byte, error) {
 
 	// TODO: the scripthash and multisig paths here are overly
@@ -280,7 +280,7 @@ func mergeScripts(chainParams *chaincfg.Params, tx *wire.MsgTx, idx int,
 // pkScript. Since this function is internal only we assume that the arguments
 // have come from other functions internally and thus are all consistent with
 // each other, behaviour is undefined if this contract is broken.
-func mergeMultiSig(tx *wire.MsgTx, idx int, amt int64, addresses []bsvutil.Address,
+func mergeMultiSig(tx *wire.MsgTx, idx int, amt int64, addresses []mvcutil.Address,
 	nRequired int, pkScript, sigScript, prevScript []byte) ([]byte, error) {
 
 	// This is an internal only function and we already parsed this script
@@ -350,7 +350,7 @@ sigLoop:
 			// All multisig addresses should be pubkey addresses
 			// it is an error to call this internal function with
 			// bad input.
-			pkaddr := addr.(*bsvutil.AddressPubKey)
+			pkaddr := addr.(*mvcutil.AddressPubKey)
 
 			pubKey := pkaddr.PubKey()
 
@@ -396,14 +396,14 @@ sigLoop:
 // KeyDB is an interface type provided to SignTxOutput, it encapsulates
 // any user state required to get the private keys for an address.
 type KeyDB interface {
-	GetKey(bsvutil.Address) (*bsvec.PrivateKey, bool, error)
+	GetKey(mvcutil.Address) (*bsvec.PrivateKey, bool, error)
 }
 
 // KeyClosure implements KeyDB with a closure.
-type KeyClosure func(bsvutil.Address) (*bsvec.PrivateKey, bool, error)
+type KeyClosure func(mvcutil.Address) (*bsvec.PrivateKey, bool, error)
 
 // GetKey implements KeyDB by returning the result of calling the closure.
-func (kc KeyClosure) GetKey(address bsvutil.Address) (*bsvec.PrivateKey,
+func (kc KeyClosure) GetKey(address mvcutil.Address) (*bsvec.PrivateKey,
 	bool, error) {
 	return kc(address)
 }
@@ -411,14 +411,14 @@ func (kc KeyClosure) GetKey(address bsvutil.Address) (*bsvec.PrivateKey,
 // ScriptDB is an interface type provided to SignTxOutput, it encapsulates any
 // user state required to get the scripts for an pay-to-script-hash address.
 type ScriptDB interface {
-	GetScript(bsvutil.Address) ([]byte, error)
+	GetScript(mvcutil.Address) ([]byte, error)
 }
 
 // ScriptClosure implements ScriptDB with a closure.
-type ScriptClosure func(bsvutil.Address) ([]byte, error)
+type ScriptClosure func(mvcutil.Address) ([]byte, error)
 
 // GetScript implements ScriptDB by returning the result of calling the closure.
-func (sc ScriptClosure) GetScript(address bsvutil.Address) ([]byte, error) {
+func (sc ScriptClosure) GetScript(address mvcutil.Address) ([]byte, error) {
 	return sc(address)
 }
 
