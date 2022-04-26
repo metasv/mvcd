@@ -5,8 +5,8 @@
 package mempool
 
 import (
-	"github.com/metasv/bsvd/blockchain"
-	"github.com/metasv/bsvd/wire"
+	"github.com/metasv/mvcd/blockchain"
+	"github.com/metasv/mvcd/wire"
 )
 
 // RuleError identifies a rule violation.  It is used to indicate that

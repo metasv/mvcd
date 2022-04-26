@@ -10,9 +10,9 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/metasv/bsvd/rpcclient"
-	"github.com/metasv/bsvd/wire"
 	"github.com/metasv/bsvutil"
+	"github.com/metasv/mvcd/rpcclient"
+	"github.com/metasv/mvcd/wire"
 )
 
 func main() {

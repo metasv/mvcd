@@ -10,11 +10,11 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/metasv/bsvd/chaincfg"
-	"github.com/metasv/bsvd/database"
-	_ "github.com/metasv/bsvd/database/ffldb"
-	"github.com/metasv/bsvd/wire"
 	"github.com/metasv/bsvutil"
+	"github.com/metasv/mvcd/chaincfg"
+	"github.com/metasv/mvcd/database"
+	_ "github.com/metasv/mvcd/database/ffldb"
+	"github.com/metasv/mvcd/wire"
 )
 
 // This example demonstrates creating a new database.
@@ -22,8 +22,8 @@ func ExampleCreate() {
 	// This example assumes the ffldb driver is imported.
 	//
 	// import (
-	// 	"github.com/metasv/bsvd/database"
-	// 	_ "github.com/metasv/bsvd/database/ffldb"
+	// 	"github.com/metasv/mvcd/database"
+	// 	_ "github.com/metasv/mvcd/database/ffldb"
 	// )
 
 	// Create a database and schedule it to be closed and removed on exit.
@@ -48,8 +48,8 @@ func Example_basicUsage() {
 	// This example assumes the ffldb driver is imported.
 	//
 	// import (
-	// 	"github.com/metasv/bsvd/database"
-	// 	_ "github.com/metasv/bsvd/database/ffldb"
+	// 	"github.com/metasv/mvcd/database"
+	// 	_ "github.com/metasv/mvcd/database/ffldb"
 	// )
 
 	// Create a database and schedule it to be closed and removed on exit.
@@ -114,8 +114,8 @@ func Example_blockStorageAndRetrieval() {
 	// This example assumes the ffldb driver is imported.
 	//
 	// import (
-	// 	"github.com/metasv/bsvd/database"
-	// 	_ "github.com/metasv/bsvd/database/ffldb"
+	// 	"github.com/metasv/mvcd/database"
+	// 	_ "github.com/metasv/mvcd/database/ffldb"
 	// )
 
 	// Create a database and schedule it to be closed and removed on exit.

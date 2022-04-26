@@ -10,8 +10,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/metasv/bsvd/chaincfg/chainhash"
-	"github.com/metasv/bsvd/wire"
+	"github.com/metasv/mvcd/chaincfg/chainhash"
+	"github.com/metasv/mvcd/wire"
 )
 
 // Bip16Activation is the timestamp where BIP0016 is valid to use in the

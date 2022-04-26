@@ -13,9 +13,9 @@ import (
 
 	"golang.org/x/crypto/ripemd160"
 
-	"github.com/metasv/bsvd/bsvec"
-	"github.com/metasv/bsvd/chaincfg/chainhash"
-	"github.com/metasv/bsvd/wire"
+	"github.com/metasv/mvcd/bsvec"
+	"github.com/metasv/mvcd/chaincfg/chainhash"
+	"github.com/metasv/mvcd/wire"
 	"hash"
 )
 

@@ -12,10 +12,10 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/metasv/bsvd/chaincfg"
-	"github.com/metasv/bsvd/database"
-	"github.com/metasv/bsvd/database/ffldb"
 	"github.com/metasv/bsvutil"
+	"github.com/metasv/mvcd/chaincfg"
+	"github.com/metasv/mvcd/database"
+	"github.com/metasv/mvcd/database/ffldb"
 )
 
 // dbType is the database type name for this driver.

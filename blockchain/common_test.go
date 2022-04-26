@@ -14,13 +14,13 @@ import (
 	"strings"
 	"time"
 
-	"github.com/metasv/bsvd/chaincfg"
-	"github.com/metasv/bsvd/chaincfg/chainhash"
-	"github.com/metasv/bsvd/database"
-	_ "github.com/metasv/bsvd/database/ffldb"
-	"github.com/metasv/bsvd/txscript"
-	"github.com/metasv/bsvd/wire"
 	"github.com/metasv/bsvutil"
+	"github.com/metasv/mvcd/chaincfg"
+	"github.com/metasv/mvcd/chaincfg/chainhash"
+	"github.com/metasv/mvcd/database"
+	_ "github.com/metasv/mvcd/database/ffldb"
+	"github.com/metasv/mvcd/txscript"
+	"github.com/metasv/mvcd/wire"
 )
 
 const (

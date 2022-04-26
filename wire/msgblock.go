@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/metasv/bsvd/chaincfg/chainhash"
+	"github.com/metasv/mvcd/chaincfg/chainhash"
 )
 
 // defaultTransactionAlloc is the default size used for the backing array

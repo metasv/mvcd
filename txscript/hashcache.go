@@ -7,8 +7,8 @@ package txscript
 import (
 	"sync"
 
-	"github.com/metasv/bsvd/chaincfg/chainhash"
-	"github.com/metasv/bsvd/wire"
+	"github.com/metasv/mvcd/chaincfg/chainhash"
+	"github.com/metasv/mvcd/wire"
 )
 
 // TxSigHashes houses the partial set of sighashes introduced within BIP0143.

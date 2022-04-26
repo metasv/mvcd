@@ -8,10 +8,10 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/metasv/bsvd/bsvec"
-	"github.com/metasv/bsvd/chaincfg"
-	"github.com/metasv/bsvd/wire"
 	"github.com/metasv/bsvutil"
+	"github.com/metasv/mvcd/bsvec"
+	"github.com/metasv/mvcd/chaincfg"
+	"github.com/metasv/mvcd/wire"
 )
 
 // RawTxInSignature returns the serialized ECDSA signature for the input idx of

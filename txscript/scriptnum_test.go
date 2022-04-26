@@ -7,7 +7,7 @@ package txscript
 import (
 	"bytes"
 	"encoding/hex"
-	"github.com/metasv/bsvd/wire"
+	"github.com/metasv/mvcd/wire"
 	"testing"
 )
 

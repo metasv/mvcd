@@ -5,8 +5,8 @@
 package main
 
 import (
-	"github.com/metasv/bsvd/chaincfg"
-	"github.com/metasv/bsvd/wire"
+	"github.com/metasv/mvcd/chaincfg"
+	"github.com/metasv/mvcd/wire"
 )
 
 // activeNetParams is a pointer to the parameters specific to the

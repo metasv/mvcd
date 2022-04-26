@@ -10,9 +10,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/metasv/bsvd/blockchain"
 	"github.com/metasv/bsvlog"
 	"github.com/metasv/bsvutil"
+	"github.com/metasv/mvcd/blockchain"
 )
 
 // blockProgressLogger provides periodic logging for other services in order

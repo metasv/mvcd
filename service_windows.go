@@ -13,7 +13,7 @@ import (
 	"github.com/btcsuite/winsvc/eventlog"
 	"github.com/btcsuite/winsvc/mgr"
 	"github.com/btcsuite/winsvc/svc"
-	"github.com/metasv/bsvd/version"
+	"github.com/metasv/mvcd/version"
 )
 
 const (

@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/metasv/bsvd/wire"
+	"github.com/metasv/mvcd/wire"
 )
 
 var (

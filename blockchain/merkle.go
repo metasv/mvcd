@@ -7,8 +7,8 @@ package blockchain
 import (
 	"math"
 
-	"github.com/metasv/bsvd/chaincfg/chainhash"
 	"github.com/metasv/bsvutil"
+	"github.com/metasv/mvcd/chaincfg/chainhash"
 )
 
 // nextPowerOfTwo returns the next highest power of two from a given number if

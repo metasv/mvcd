@@ -10,10 +10,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/metasv/bsvd/chaincfg"
-	"github.com/metasv/bsvd/chaincfg/chainhash"
-	"github.com/metasv/bsvd/database"
-	"github.com/metasv/bsvd/wire"
+	"github.com/metasv/mvcd/chaincfg"
+	"github.com/metasv/mvcd/chaincfg/chainhash"
+	"github.com/metasv/mvcd/database"
+	"github.com/metasv/mvcd/wire"
 )
 
 // blockStatus is a bit field representing the validation state of the block.

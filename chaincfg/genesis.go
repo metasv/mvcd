@@ -7,8 +7,8 @@ package chaincfg
 import (
 	"time"
 
-	"github.com/metasv/bsvd/chaincfg/chainhash"
-	"github.com/metasv/bsvd/wire"
+	"github.com/metasv/mvcd/chaincfg/chainhash"
+	"github.com/metasv/mvcd/wire"
 )
 
 // genesisCoinbaseTx is the coinbase transaction for the genesis blocks for

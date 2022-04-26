@@ -11,9 +11,9 @@ import (
 	"encoding/binary"
 	"errors"
 
-	"github.com/metasv/bsvd/blockchain"
-	"github.com/metasv/bsvd/database"
 	"github.com/metasv/bsvutil"
+	"github.com/metasv/mvcd/blockchain"
+	"github.com/metasv/mvcd/database"
 )
 
 var (

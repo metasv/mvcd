@@ -5,9 +5,9 @@
 package mining
 
 import (
-	"github.com/metasv/bsvd/blockchain"
-	"github.com/metasv/bsvd/wire"
 	"github.com/metasv/bsvutil"
+	"github.com/metasv/mvcd/blockchain"
+	"github.com/metasv/mvcd/wire"
 )
 
 const (

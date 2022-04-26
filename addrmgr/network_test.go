@@ -8,8 +8,8 @@ import (
 	"net"
 	"testing"
 
-	"github.com/metasv/bsvd/addrmgr"
-	"github.com/metasv/bsvd/wire"
+	"github.com/metasv/mvcd/addrmgr"
+	"github.com/metasv/mvcd/wire"
 )
 
 // TestIPTypes ensures the various functions which determine the type of an IP

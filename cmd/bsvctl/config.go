@@ -14,9 +14,9 @@ import (
 	"strings"
 
 	flags "github.com/jessevdk/go-flags"
-	"github.com/metasv/bsvd/btcjson"
-	"github.com/metasv/bsvd/version"
 	"github.com/metasv/bsvutil"
+	"github.com/metasv/mvcd/btcjson"
+	"github.com/metasv/mvcd/version"
 )
 
 const (

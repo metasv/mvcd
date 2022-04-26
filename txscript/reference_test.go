@@ -15,9 +15,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/metasv/bsvd/chaincfg/chainhash"
-	"github.com/metasv/bsvd/wire"
 	"github.com/metasv/bsvutil"
+	"github.com/metasv/mvcd/chaincfg/chainhash"
+	"github.com/metasv/mvcd/wire"
 )
 
 // fixedExcessiveBlockSize should not be the default -we want to ensure it will work in all cases

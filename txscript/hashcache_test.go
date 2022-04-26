@@ -10,7 +10,7 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/metasv/bsvd/wire"
+	"github.com/metasv/mvcd/wire"
 )
 
 // genTestTx creates a random transaction for uses within test cases.

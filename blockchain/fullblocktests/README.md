@@ -3,7 +3,7 @@ fullblocktests
 
 [![Build Status](https://travis-ci.org/metasv/bsvd.png?branch=master)](https://travis-ci.org/metasv/bsvd)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
-[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/metasv/bsvd/blockchain/fullblocktests)
+[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/metasv/mvcd/blockchain/fullblocktests)
 
 Package fullblocktests provides a set of full block tests to be used for testing
 the consensus validation rules.  The tests are intended to be flexible enough to
@@ -20,7 +20,7 @@ of blocks that exercise the consensus validation rules.
 ## Installation and Updating
 
 ```bash
-$ go get -u github.com/metasv/bsvd/blockchain/fullblocktests
+$ go get -u github.com/metasv/mvcd/blockchain/fullblocktests
 ```
 
 ## License

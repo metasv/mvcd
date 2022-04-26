@@ -12,15 +12,15 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/metasv/bsvd/blockchain"
-	"github.com/metasv/bsvd/blockchain/indexers"
-	"github.com/metasv/bsvd/btcjson"
-	"github.com/metasv/bsvd/chaincfg"
-	"github.com/metasv/bsvd/chaincfg/chainhash"
-	"github.com/metasv/bsvd/mining"
-	"github.com/metasv/bsvd/txscript"
-	"github.com/metasv/bsvd/wire"
 	"github.com/metasv/bsvutil"
+	"github.com/metasv/mvcd/blockchain"
+	"github.com/metasv/mvcd/blockchain/indexers"
+	"github.com/metasv/mvcd/btcjson"
+	"github.com/metasv/mvcd/chaincfg"
+	"github.com/metasv/mvcd/chaincfg/chainhash"
+	"github.com/metasv/mvcd/mining"
+	"github.com/metasv/mvcd/txscript"
+	"github.com/metasv/mvcd/wire"
 )
 
 const (

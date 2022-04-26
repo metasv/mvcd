@@ -9,7 +9,7 @@ Overview
 
 This client provides a robust and easy to use client for interfacing with a
 Bitcoin RPC server that uses a bsvd/bitcoin core compatible Bitcoin JSON-RPC
-API.  This client has been tested with bsvd (https://github.com/metasv/bsvd),
+API.  This client has been tested with bsvd (https://github.com/metasv/mvcd),
 bsvwallet (https://github.com/metasv/bsvwallet), and
 bitcoin core (https://github.com/bitcoin).
 

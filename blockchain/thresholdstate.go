@@ -7,7 +7,7 @@ package blockchain
 import (
 	"fmt"
 
-	"github.com/metasv/bsvd/chaincfg/chainhash"
+	"github.com/metasv/mvcd/chaincfg/chainhash"
 )
 
 // ThresholdState define the various threshold states used when voting on

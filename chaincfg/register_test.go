@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	. "github.com/metasv/bsvd/chaincfg"
+	. "github.com/metasv/mvcd/chaincfg"
 )
 
 // Define some of the required parameters for a user-registered

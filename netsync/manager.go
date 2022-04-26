@@ -12,14 +12,14 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/metasv/bsvd/blockchain"
-	"github.com/metasv/bsvd/chaincfg"
-	"github.com/metasv/bsvd/chaincfg/chainhash"
-	"github.com/metasv/bsvd/database"
-	"github.com/metasv/bsvd/mempool"
-	peerpkg "github.com/metasv/bsvd/peer"
-	"github.com/metasv/bsvd/wire"
 	"github.com/metasv/bsvutil"
+	"github.com/metasv/mvcd/blockchain"
+	"github.com/metasv/mvcd/chaincfg"
+	"github.com/metasv/mvcd/chaincfg/chainhash"
+	"github.com/metasv/mvcd/database"
+	"github.com/metasv/mvcd/mempool"
+	peerpkg "github.com/metasv/mvcd/peer"
+	"github.com/metasv/mvcd/wire"
 )
 
 const (

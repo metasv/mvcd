@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/metasv/bsvd/bsvec"
-	"github.com/metasv/bsvd/wire"
+	"github.com/metasv/mvcd/bsvec"
+	"github.com/metasv/mvcd/wire"
 )
 
 // ScriptFlags is a bitmask defining additional operations or tests that will be

@@ -8,10 +8,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/metasv/bsvd/chaincfg"
-	"github.com/metasv/bsvd/chaincfg/chainhash"
-	"github.com/metasv/bsvd/txscript"
 	"github.com/metasv/bsvutil"
+	"github.com/metasv/mvcd/chaincfg"
+	"github.com/metasv/mvcd/chaincfg/chainhash"
+	"github.com/metasv/mvcd/txscript"
 )
 
 // CheckpointConfirmations is the number of blocks before the end of the current

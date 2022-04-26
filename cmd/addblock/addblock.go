@@ -9,11 +9,11 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/metasv/bsvd/blockchain"
-	"github.com/metasv/bsvd/blockchain/indexers"
-	"github.com/metasv/bsvd/database"
-	"github.com/metasv/bsvd/limits"
 	"github.com/metasv/bsvlog"
+	"github.com/metasv/mvcd/blockchain"
+	"github.com/metasv/mvcd/blockchain/indexers"
+	"github.com/metasv/mvcd/database"
+	"github.com/metasv/mvcd/limits"
 )
 
 const (

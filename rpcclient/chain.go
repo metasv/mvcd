@@ -10,9 +10,9 @@ import (
 	"encoding/hex"
 	"encoding/json"
 
-	"github.com/metasv/bsvd/btcjson"
-	"github.com/metasv/bsvd/chaincfg/chainhash"
-	"github.com/metasv/bsvd/wire"
+	"github.com/metasv/mvcd/btcjson"
+	"github.com/metasv/mvcd/chaincfg/chainhash"
+	"github.com/metasv/mvcd/wire"
 )
 
 // FutureGetBestBlockHashResult is a future promise to deliver the result of a

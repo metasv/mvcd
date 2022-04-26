@@ -14,14 +14,14 @@ import (
 	"testing"
 	"time"
 
-	"github.com/metasv/bsvd/blockchain"
-	"github.com/metasv/bsvd/bsvec"
-	"github.com/metasv/bsvd/chaincfg"
-	"github.com/metasv/bsvd/chaincfg/chainhash"
-	"github.com/metasv/bsvd/integration/rpctest"
-	"github.com/metasv/bsvd/txscript"
-	"github.com/metasv/bsvd/wire"
 	"github.com/metasv/bsvutil"
+	"github.com/metasv/mvcd/blockchain"
+	"github.com/metasv/mvcd/bsvec"
+	"github.com/metasv/mvcd/chaincfg"
+	"github.com/metasv/mvcd/chaincfg/chainhash"
+	"github.com/metasv/mvcd/integration/rpctest"
+	"github.com/metasv/mvcd/txscript"
+	"github.com/metasv/mvcd/wire"
 )
 
 // fixedExcessiveBlockSize should not be the default -we want to ensure it will work in all cases

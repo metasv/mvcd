@@ -17,7 +17,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/metasv/bsvd/bsvec"
+	"github.com/metasv/mvcd/bsvec"
 )
 
 func main() {

@@ -9,9 +9,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/metasv/bsvd/chaincfg"
-	"github.com/metasv/bsvd/database"
 	"github.com/metasv/bsvutil"
+	"github.com/metasv/mvcd/chaincfg"
+	"github.com/metasv/mvcd/database"
 )
 
 // BenchmarkBlockHeader benchmarks how long it takes to load the mainnet genesis

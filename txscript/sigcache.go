@@ -7,8 +7,8 @@ package txscript
 import (
 	"sync"
 
-	"github.com/metasv/bsvd/bsvec"
-	"github.com/metasv/bsvd/chaincfg/chainhash"
+	"github.com/metasv/mvcd/bsvec"
+	"github.com/metasv/mvcd/chaincfg/chainhash"
 )
 
 // sigCacheEntry represents an entry in the SigCache. Entries within the

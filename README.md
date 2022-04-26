@@ -1,9 +1,9 @@
 bsvd
 ====
 [![Build Status](https://travis-ci.org/metasv/bsvd.png?branch=master)](https://travis-ci.org/metasv/bsvd)
-[![Go Report Card](https://goreportcard.com/badge/github.com/metasv/bsvd)](https://goreportcard.com/report/github.com/metasv/bsvd)
+[![Go Report Card](https://goreportcard.com/badge/github.com/metasv/mvcd)](https://goreportcard.com/report/github.com/metasv/mvcd)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
-[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/metasv/bsvd)
+[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/metasv/mvcd)
 
 bsvd is a full node Bitcoin (BSV) implementation written in Go (golang).
 
@@ -35,7 +35,7 @@ that communicates with your running bsvd instance via the API.
 
 ### Install Pre-built Packages
 
-The easiest way to run the server is to download a pre-built binary. You can find binaries of our latest release for each operating system at the [releases page](https://github.com/metasv/bsvd/releases).
+The easiest way to run the server is to download a pre-built binary. You can find binaries of our latest release for each operating system at the [releases page](https://github.com/metasv/mvcd/releases).
 
 ### Build from Source
 
@@ -47,7 +47,7 @@ If you prefer to install from source do the following:
 - Run the following commands to obtain btcd, all dependencies, and install it:
 
 ```bash
-$ go get github.com/metasv/bsvd
+$ go get github.com/metasv/mvcd
 ```
 
 This will download and compile `bsvd` and put it in your path.
@@ -68,7 +68,7 @@ $ ./bsvd
 ```
 
 You'll find a large number of runtime options on the help menu. All of which can also be set in a config file.
-See the [sample config file](https://github.com/metasv/bsvd/blob/master/sample-bsvd.conf) for an example of how to use it.
+See the [sample config file](https://github.com/metasv/mvcd/blob/master/sample-bsvd.conf) for an example of how to use it.
 
 ## Docker
 
@@ -102,9 +102,9 @@ In the higher version (0.2.2+) of BSV node, a new wire message "protoconf" has b
 package main
 
 import (
-	"github.com/metasv/bsvd/chaincfg"
-	"github.com/metasv/bsvd/peer"
-	"github.com/metasv/bsvd/wire"
+	"github.com/metasv/mvcd/chaincfg"
+	"github.com/metasv/mvcd/peer"
+	"github.com/metasv/mvcd/wire"
 	"log"
 	"net"
 	"time"
@@ -185,11 +185,11 @@ func main() {
 
 ## Documentation
 
-The documentation is a work-in-progress.  It is located in the [docs](https://github.com/metasv/bsvd/tree/master/docs) folder.
+The documentation is a work-in-progress.  It is located in the [docs](https://github.com/metasv/mvcd/tree/master/docs) folder.
 
 ## Contributing
 
-Contributions are definitely welcome! Please read the contributing [guidelines](https://github.com/metasv/bsvd/blob/master/docs/code_contribution_guidelines.md) before starting.
+Contributions are definitely welcome! Please read the contributing [guidelines](https://github.com/metasv/mvcd/blob/master/docs/code_contribution_guidelines.md) before starting.
 
 ## Security Disclosures
 

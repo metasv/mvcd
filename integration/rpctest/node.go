@@ -14,8 +14,8 @@ import (
 	"runtime"
 	"time"
 
-	rpc "github.com/metasv/bsvd/rpcclient"
 	"github.com/metasv/bsvutil"
+	rpc "github.com/metasv/mvcd/rpcclient"
 )
 
 // nodeConfig contains all the args, and data required to launch a bsvd process

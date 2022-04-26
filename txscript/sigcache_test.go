@@ -8,8 +8,8 @@ import (
 	"crypto/rand"
 	"testing"
 
-	"github.com/metasv/bsvd/bsvec"
-	"github.com/metasv/bsvd/chaincfg/chainhash"
+	"github.com/metasv/mvcd/bsvec"
+	"github.com/metasv/mvcd/chaincfg/chainhash"
 )
 
 // genRandomSig returns a random message, a signature of the message under the

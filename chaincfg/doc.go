@@ -26,7 +26,7 @@
 //          "log"
 //
 //          "github.com/metasv/bsvutil"
-//          "github.com/metasv/bsvd/chaincfg"
+//          "github.com/metasv/mvcd/chaincfg"
 //  )
 //
 //  var testnet = flag.Bool("testnet", false, "operate on the testnet Bitcoin network")

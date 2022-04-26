@@ -10,11 +10,11 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/metasv/bsvd/blockchain"
-	"github.com/metasv/bsvd/chaincfg"
-	"github.com/metasv/bsvd/database"
-	_ "github.com/metasv/bsvd/database/ffldb"
 	"github.com/metasv/bsvutil"
+	"github.com/metasv/mvcd/blockchain"
+	"github.com/metasv/mvcd/chaincfg"
+	"github.com/metasv/mvcd/database"
+	_ "github.com/metasv/mvcd/database/ffldb"
 )
 
 // This example demonstrates how to create a new chain instance and use

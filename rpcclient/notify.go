@@ -13,10 +13,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/metasv/bsvd/btcjson"
-	"github.com/metasv/bsvd/chaincfg/chainhash"
-	"github.com/metasv/bsvd/wire"
 	"github.com/metasv/bsvutil"
+	"github.com/metasv/mvcd/btcjson"
+	"github.com/metasv/mvcd/chaincfg/chainhash"
+	"github.com/metasv/mvcd/wire"
 )
 
 var (

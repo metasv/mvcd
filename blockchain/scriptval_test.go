@@ -9,7 +9,7 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/metasv/bsvd/txscript"
+	"github.com/metasv/mvcd/txscript"
 )
 
 // TestCheckBlockScripts ensures that validating the all of the scripts in a

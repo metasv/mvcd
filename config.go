@@ -22,15 +22,15 @@ import (
 	"time"
 
 	"github.com/btcsuite/go-socks/socks"
-	"github.com/metasv/bsvd/chaincfg"
-	"github.com/metasv/bsvd/chaincfg/chainhash"
-	"github.com/metasv/bsvd/connmgr"
-	"github.com/metasv/bsvd/database"
-	_ "github.com/metasv/bsvd/database/ffldb"
-	"github.com/metasv/bsvd/mempool"
-	"github.com/metasv/bsvd/peer"
-	"github.com/metasv/bsvd/version"
 	"github.com/metasv/bsvutil"
+	"github.com/metasv/mvcd/chaincfg"
+	"github.com/metasv/mvcd/chaincfg/chainhash"
+	"github.com/metasv/mvcd/connmgr"
+	"github.com/metasv/mvcd/database"
+	_ "github.com/metasv/mvcd/database/ffldb"
+	"github.com/metasv/mvcd/mempool"
+	"github.com/metasv/mvcd/peer"
+	"github.com/metasv/mvcd/version"
 
 	flags "github.com/jessevdk/go-flags"
 )

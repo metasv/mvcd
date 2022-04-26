@@ -7,9 +7,9 @@ package ffldb
 import (
 	"fmt"
 
-	"github.com/metasv/bsvd/database"
-	"github.com/metasv/bsvd/wire"
 	"github.com/metasv/bsvlog"
+	"github.com/metasv/mvcd/database"
+	"github.com/metasv/mvcd/wire"
 )
 
 var log = bsvlog.Disabled

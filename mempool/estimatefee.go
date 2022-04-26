@@ -16,9 +16,9 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/metasv/bsvd/chaincfg/chainhash"
-	"github.com/metasv/bsvd/mining"
 	"github.com/metasv/bsvutil"
+	"github.com/metasv/mvcd/chaincfg/chainhash"
+	"github.com/metasv/mvcd/mining"
 )
 
 // TODO incorporate Alex Morcos' modifications to Gavin's initial model

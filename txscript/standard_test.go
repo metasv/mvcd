@@ -9,8 +9,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/metasv/bsvd/chaincfg"
 	"github.com/metasv/bsvutil"
+	"github.com/metasv/mvcd/chaincfg"
 )
 
 // mustParseShortForm parses the passed short form script and returns the

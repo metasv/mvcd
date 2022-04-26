@@ -7,7 +7,7 @@ package blockchain
 import (
 	"testing"
 
-	"github.com/metasv/bsvd/chaincfg"
+	"github.com/metasv/mvcd/chaincfg"
 )
 
 // TestNotifications ensures that notification callbacks are fired on events.

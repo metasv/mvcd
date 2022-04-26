@@ -7,7 +7,7 @@ package wire
 import (
 	"io"
 
-	"github.com/metasv/bsvd/chaincfg/chainhash"
+	"github.com/metasv/mvcd/chaincfg/chainhash"
 )
 
 // MsgGetCFCheckpt is a request for filter headers at evenly spaced intervals

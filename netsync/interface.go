@@ -5,13 +5,13 @@
 package netsync
 
 import (
-	"github.com/metasv/bsvd/blockchain"
-	"github.com/metasv/bsvd/chaincfg"
-	"github.com/metasv/bsvd/chaincfg/chainhash"
-	"github.com/metasv/bsvd/mempool"
-	"github.com/metasv/bsvd/peer"
-	"github.com/metasv/bsvd/wire"
 	"github.com/metasv/bsvutil"
+	"github.com/metasv/mvcd/blockchain"
+	"github.com/metasv/mvcd/chaincfg"
+	"github.com/metasv/mvcd/chaincfg/chainhash"
+	"github.com/metasv/mvcd/mempool"
+	"github.com/metasv/mvcd/peer"
+	"github.com/metasv/mvcd/wire"
 )
 
 // PeerNotifier exposes methods to notify peers of status changes to
