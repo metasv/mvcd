@@ -6,6 +6,7 @@ package wire
 
 import (
 	"bytes"
+	"errors"
 	"fmt"
 	"io"
 	"strconv"
@@ -14,7 +15,10 @@ import (
 )
 
 const (
-	// TxVersion is the current latest supported transaction version.
+	MVCTxVersion1  = 1
+	MVCTxVersion2  = 2
+	MVCTxVersion10 = 10
+
 	TxVersion = 1
 
 	// MaxTxInSequenceNum is the maximum sequence number the sequence field
@@ -267,9 +271,79 @@ func (msg *MsgTx) TxHash() chainhash.Hash {
 	// Ignore the error returns since the only way the encode could fail
 	// is being out of memory or due to nil pointers, both of which would
 	// cause a run-time panic.
-	buf := bytes.NewBuffer(make([]byte, 0, msg.SerializeSize()))
-	_ = msg.Serialize(buf)
-	return chainhash.DoubleHashH(buf.Bytes())
+	if msg.Version == MVCTxVersion10 {
+		return msg.NewTxHash()
+	} else {
+		buf := bytes.NewBuffer(make([]byte, 0, msg.SerializeSize()))
+		_ = msg.Serialize(buf)
+		return chainhash.DoubleHashH(buf.Bytes())
+	}
+}
+
+// NewTxHash Version10 new tx hash
+func (msg *MsgTx) NewTxHash() chainhash.Hash {
+	hash, _ := newTxHash(msg)
+	return hash
+}
+
+func newTxHash(msg *MsgTx) (chainhash.Hash, error) {
+	if msg.Version != MVCTxVersion10 {
+		return chainhash.Hash{}, errors.New("version error")
+	}
+	buf := bytes.NewBuffer(make([]byte, 0, 0))
+	// version
+	err := binarySerializer.PutUint32(buf, littleEndian, uint32(msg.Version))
+	if err != nil {
+		return chainhash.Hash{}, err
+	}
+	// lock time
+	err = binarySerializer.PutUint32(buf, littleEndian, msg.LockTime)
+	if err != nil {
+		return chainhash.Hash{}, err
+	}
+	// inputs count
+	count := uint32(len(msg.TxIn))
+	err = binarySerializer.PutUint32(buf, littleEndian, count)
+	if err != nil {
+		return chainhash.Hash{}, err
+	}
+	// output count
+	count = uint32(len(msg.TxOut))
+	err = binarySerializer.PutUint32(buf, littleEndian, count)
+	if err != nil {
+		return chainhash.Hash{}, err
+	}
+	// outpoint and sequence
+	inputBuf := bytes.NewBuffer(make([]byte, 0, 0))
+	for _, ti := range msg.TxIn {
+		inputBuf.Write(ti.PreviousOutPoint.Hash[:])
+		err = binarySerializer.PutUint32(inputBuf, littleEndian, ti.PreviousOutPoint.Index)
+		if err != nil {
+			return chainhash.Hash{}, err
+		}
+		err = binarySerializer.PutUint32(inputBuf, littleEndian, ti.Sequence)
+		if err != nil {
+			return chainhash.Hash{}, err
+		}
+	}
+	buf.Write(chainhash.HashB(inputBuf.Bytes()))
+	// unlocking script
+	inputUnlockingBuf := bytes.NewBuffer(make([]byte, 0, 0))
+	for _, ti := range msg.TxIn {
+		inputUnlockingBuf.Write(chainhash.HashB(ti.SignatureScript))
+	}
+	buf.Write(chainhash.HashB(inputUnlockingBuf.Bytes()))
+	// outputs
+	outputBuf := bytes.NewBuffer(make([]byte, 0, 0))
+	for _, to := range msg.TxOut {
+		err = binarySerializer.PutUint64(outputBuf, littleEndian, uint64(to.Value))
+		if err != nil {
+			return chainhash.Hash{}, err
+		}
+		outputBuf.Write(chainhash.HashB(to.PkScript))
+	}
+	buf.Write(chainhash.HashB(outputBuf.Bytes()))
+	return chainhash.DoubleHashH(buf.Bytes()), nil
 }
 
 // Copy creates a deep copy of a transaction so that the original does not get
